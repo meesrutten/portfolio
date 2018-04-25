@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <defs>
+    <filter id="goo">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+      <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+      <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
+    </filter>
+  </defs>
+</svg>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <defs>
+    <filter id="drop-shadow">
+      <!-- Get the element's graphic,  throught the SourceGraphic keyword in the 'in' attribute, apply a blur filter, and name the output through the 'result' attr -->
+      <feGaussianBlur in="SourceGraphic" stdDeviation="15" result="shadow" />
+      
+      <!-- Get the previous output, shift its position, and output with the same name -->
+      <feOffset in="shadow" dx="0" dy="2" result="shadow" />
+      
+      <!-- Darken the result of the previous filters -->
+      <feColorMatrix in="shadow" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.6 0" result="shadow" />
+      
+      <!-- Put the original graphics atop the shadow we made -->
+      <feBlend in="SourceGraphic" in2="shadow" />
+    </filter>
+  </defs>
+</svg>
+

@@ -1,0 +1,70 @@
+{
+	"Magic-lib": [
+		{
+			"title": "Magic Lib",
+			"imageSrc": "./images/magic-lib.png",
+			"MoreOver": "Project",
+			"MoreOverText": "A microlib to make the Web Animations API easier to use via JSON components.",
+			"MoreOverListHeader": "I used:",
+			"MoreOverListItem1": "Web animation API",
+			"MoreOverListItem2": "",
+			"MoreOverListItem3": "",
+			"Link2Href": "https://github.com/meesrutten/magiclib",
+			"Link2": "GitHub",
+			"Link1Href": "",
+			"Link1": "",
+			"Button": "See more"
+		}
+	],
+	"Timeline-of-artists": [
+		{
+			"title": "Timeline of Artists",
+			"imageSrc": "./images/timeline-of-artists.png",
+			"MoreOver": "Project",
+			"MoreOverText": "A timeline of artists during the Golden Age of Amsterdam",
+			"MoreOverListHeader": "I used:",
+			"MoreOverListItem1": "GSAP",
+			"MoreOverListItem2": "Serverside rendering",
+			"MoreOverListItem3": "",
+			"Link2Href": "https://github.com/meesrutten/performance-matters-server-side",
+			"Link2": "GitHub",
+			"Link1Href": "https://codepen.io/meesrutten/full/WzNNGQ",
+			"Link1": "CodePen",
+			"Button": "See more"
+		}
+	],
+	"Tired": [
+		{
+			"title": "Tired",
+			"imageSrc": "./images/moe-open.png",
+			"MoreOver": "Project",
+			"MoreOverText": "Creative coding that depicts the user falling asleep while reading.",
+			"MoreOverListHeader": "I used:",
+			"MoreOverListItem1": "CSS Animation",
+			"MoreOverListItem2": "CSS Filters",
+			"MoreOverListItem3": "",
+			"Link2Href": "https://meesrutten.me/shortstories/moe.html",
+			"Link2": "Live demo",
+			"Link1Href": "",
+			"Link1": "",
+			"Button": "See more"
+		}
+	],
+	"Navvy": [
+		{
+			"title": "Navvy",
+			"imageSrc": "./images/navvy.png",
+			"MoreOver": "Project",
+			"MoreOverText": "A chatbot that gives you information about certain things and helps you navigate.",
+			"MoreOverListHeader": "I used:",
+			"MoreOverListItem1": "JavaScript",
+			"MoreOverListItem2": "",
+			"MoreOverListItem3": "",
+			"Link2Href": "https://github.com/meesrutten/chatbot",
+			"Link2": "GitHub",
+			"Link1Href": "https://codepen.io/meesrutten/full/wgvpQM",
+			"Link1": "CodePen",
+			"Button": "See more"
+		}
+	]
+}

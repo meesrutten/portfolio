@@ -1,0 +1,111 @@
+
+
+<%
+/*eslint-disable */
+	var content = data
+	var firstCard = firstCard;
+/*eslint-enable */
+
+%>
+ <% for (let key in firstCard) { %>
+	<section class="card-holder">
+		<div class="screen-reader">
+			Hey there! There is currently an animation playing of a card folding out while revealing its contents. This may take a second so please wait one second before you navigate.
+		</div>
+		<style>
+			.screen-reader {
+				position: absolute;
+				width: 1px;
+				height: 1px;
+				padding: 0;
+				margin: -1px;
+				overflow: hidden;
+				clip: rect(0,0,0,0);
+				border: 0;
+			}
+		</style>
+		<article id="firstCard" class="card" aria-live="polite" aria-busy="true">
+			<div role="presentation" class="card-shadow"></div>
+			<div class="flipper">
+				<div>
+					<!-- <section class="card-leftHalf" style="background: linear-gradient( 180deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 20%, rgba(0,0,0,0.1) 100% ), url('<%- firstCard[key][0].imageSrc %>'); background-position: center top">  -->
+					<section class="card-leftHalf" > 
+						<h1> <%- firstCard[key][0].title %></h1>
+						<img class="card-image" role="presentation" src="<%- firstCard[key][0].imageSrc %>" alt="Image of Mees">
+						<!-- <img src="<%- firstCard[key][0].imageSrc2 %>" alt="Image"> -->
+					</section>
+					<section class="card-rightHalf">
+						<article class="card-info">
+							<div class="background-sizer"></div>
+
+							<h2><%- firstCard[key][0].MoreOver %></h2>
+							<p><%- firstCard[key][0].MoreOverText %></p>
+						</article>
+						<section class="card-cta">
+							<nav role="navigation">
+								<a href="<%- firstCard[key][0].Link1Href %>"><%- firstCard[key][0].Link1 %></a>
+								<a href="<%- firstCard[key][0].Link2Href %>"><%- firstCard[key][0].Link2 %></a>
+							</nav>
+							<a class="card-button-link" href="<%- key %>" aria-label="Read more about <%- firstCard[key][0].title %>" rel="next">
+								<button tabindex="-1" class="card-button">
+									<%- firstCard[key][0].Button %>
+								</button>
+							</a>
+						</section>
+					</section>
+				</div>	
+			</div>
+	
+		</article>
+	</section>
+
+<% } %>
+
+<% for (let key in content) { %>
+	<section class="card-holder">
+		<article class="card">
+			<div role="presentation" class="card-shadow"></div>
+			<div class="flipper">
+				<div>
+					<!-- <section class="card-leftHalf" style="background: linear-gradient( 180deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 20%, rgba(0,0,0,0.1) 100%), url('<%- content[key][0].imageSrc %>'); background-position: center top; background-size: cover;">  -->
+					<section class="card-leftHalf"> 
+						<h2 id="<%- key %>"> <%- content[key][0].title %></h2>
+						<img class="card-image" src="<%- content[key][0].imageSrc %>" alt="Image">
+					</section>
+					<section class="card-rightHalf">
+						<article class="card-info">
+							<div class="background-sizer"></div>
+
+							<h2><%- content[key][0].MoreOver %></h2>
+							<p><%- content[key][0].MoreOverText %></p>
+							<h3><%- content[key][0].MoreOverListHeader %></h3>
+							<ul>
+								<%if(content[key][0].MoreOverListItem1.length > 0){ %>
+									<li><%- content[key][0].MoreOverListItem1 %></li>
+								<% } %>
+								<%if(content[key][0].MoreOverListItem2.length > 0){ %>
+									<li><%- content[key][0].MoreOfverListItem2 %></li>
+								<% } %>
+								<%if(content[key][0].MoreOverListItem3.length > 0){ %>
+									<li><%- content[key][0].MoreOverListItem3 %></li>
+								<% } %>
+							</ul>
+						</article>
+						<section class="card-cta">
+							<nav role="navigation">
+								<a href="<%- content[key][0].Link1Href %>"><%- content[key][0].Link1 %></a>
+								<a href="<%- content[key][0].Link2Href %>"><%- content[key][0].Link2 %></a>
+							</nav>
+							<a class="card-button-link" href="<%- key %>" aria-label="Read more about <%- content[key][0].title %>" rel="next">
+								<button tabindex="-1" class="card-button">
+									<%- content[key][0].Button %>
+								</button>
+							</a>
+						</section>
+					</section>
+				</div>	
+			</div>
+	
+		</article>
+	</section>
+<% } %>

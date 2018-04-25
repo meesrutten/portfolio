@@ -1,0 +1,153 @@
+<% var data = data; %>
+
+<%- include('common/head.ejs') %>
+
+<div id="barba-wrapper">
+	<div class="barba-container" data-namespace="article" aria-live="polite" role="main">
+
+<article class="article">
+	<header>
+		<h1>
+			<%- data[0].title %>
+		</h1>
+		<p>
+			<%- data[0].intro %>
+		</p>
+	</header>
+	<figure role="presentation">
+		<img role="presentation" src="<%- data[0].imageSrc %>" alt="<%- data[0].imageAlt %>" class="img-with-shadow">
+		<figcaption role="presentation">
+			<%- data[0].imageAlt %>
+		</figcaption>
+	</figure>
+
+	<% if(data[0].title1.length > 0) { %>
+		<h2><%- data[0].title1 %></h2>
+	<% } %>
+	<% if(data[0].paragraph1.length > 0) { %>
+		<p><%- data[0].paragraph1 %></p>
+	<% } %>
+	<% if(data[0].title2.length > 0) { %>
+		<h2><%- data[0].title2 %></h2>
+	<% } %>
+	<% if(data[0].paragraph2.length > 0) { %>
+		<p><%- data[0].paragraph2 %></p>
+	<% } %>
+	<% if(data[0].title3.length > 0) { %>
+		<h2>
+			<%- data[0].title3 %>
+		</h2>
+	<% } %>
+	<% if(data[0].paragraph3.length > 0) { %>
+		<p>
+			<%- data[0].paragraph3 %>
+		</p>
+	<% } %>
+	<% if(data[0].title4.length > 0) { %>
+		<h2>
+			<%- data[0].title4 %>
+		</h2>
+	<% } %>
+	<% if(data[0].paragraph4.length > 0) { %>
+		<p>
+			<%- data[0].paragraph4 %>
+		</p>
+	<% } %>
+	<% if(data[0].title5.length > 0) { %>
+		<h2>
+			<%- data[0].title5 %>
+		</h2>
+	<% } %>
+	<% if(data[0].paragraph5.length > 0) { %>
+		<p>
+			<%- data[0].paragraph5 %>
+		</p>
+	<% } %>
+	<% if(data[0].imageSrc2.length > 0) { %>
+	<figure role="presentation">
+		<img src="<%- data[0].imageSrc2 %>" alt="data[0].imageAlt2" class="img-with-shadow" role="presentation">
+		<figcaption role="presentation">
+		<%- data[0].imageAlt2 %>
+		</figcaption>
+	</figure>
+	<% } %>
+	<% if(data[0].listTitle1.length > 0) { %>
+		<h2>
+			<%- data[0].listTitle1 %>
+		</h2>
+	<% } %>
+	<ul>
+	<% if(data[0].listItem1.length > 0) { %>
+		<li>
+			<%- data[0].listItem1 %>
+		</li>
+	<% } %>
+	<% if(data[0].listItem2.length > 0) { %>
+		<li>
+			<%- data[0].listItem2 %>
+		</li>
+	<% } %>
+	<% if(data[0].listItem3.length > 0) { %>
+		<li>
+			<%- data[0].listItem3 %>
+		</li>
+	<% } %>
+	</ul>
+	<% if(data[0].imageSrc3.length > 0) { %>
+	<figure role="presentation">
+		<img src="<%- data[0].imageSrc3 %>" alt="data[0].imageAlt3" class="img-with-shadow" role="presentation">
+		<figcaption role="presentation">
+			<%- data[0].imageAlt3 %>
+		</figcaption>
+	</figure>
+	<% } %>
+	<% if(data[0].imageSrc4.length > 0) { %>
+	<figure role="presentation" class="image-overlay-corners">
+		<a href="https://meesrutten.me/Magic-lib">
+			<img src="<%- data[0].imageSrc4 %>" alt="data[0].imageAlt4" role="presentation">
+			<figcaption role="presentation">
+				<%- data[0].imageAlt4 %>
+			</figcaption>
+		</a>
+		<a href="https://meesrutten.me/Timeline-of-artists">
+			<img src="<%- data[0].imageSrc5 %>" alt="data[0].imageAlt5" role="presentation">
+			<figcaption role="presentation">
+				<%- data[0].imageAlt5 %>
+			</figcaption>
+		</a>
+	</figure>
+	<% } %>
+	<% if(data[0].LinkIntro.length > 0) { %>
+	<p class="text-for-button"><%- data[0].LinkIntro %></p>
+	<% } %>
+	<% if(data[0].Link1.length > 0 && data[0].Link2.length <= 0 && data[0].Link3.length <=0) { %>
+	<a href="<%- data[0].Link1Href %>" class="view-project">
+		<%- data[0].Link1 %>
+	</a>
+	<% } else { %>
+	<div class="links">
+	<a href="<%- data[0].Link1Href %>" target="_blank" class="view-project">
+		<%- data[0].Link1 %>
+	</a>
+	<a href="<%- data[0].Link2Href %>" target="_blank" class="view-project">
+		<%- data[0].Link2 %>
+	</a>
+	<% if(data[0].Link3.length > 0) {%>
+	<a href="<%- data[0].Link3Href %>" target="_blank" class="view-project">
+		<%- data[0].Link3 %>
+	</a>
+	<% } %>
+	</div>
+	<%}%>
+</article>
+
+
+
+<%- include('components/background.ejs') %>
+	<div class="article-animation article-animation-top"></div>
+	<div class="article-animation article-animation-bottom"></div>
+
+	</div>
+</div>
+
+<%- include('common/foot.ejs') %>

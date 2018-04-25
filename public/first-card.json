@@ -1,0 +1,20 @@
+{
+"Intro": [
+		{
+			"title": "Mees Rutten",
+			"imageSrc": "./images/mees1.jpg",
+			"imageSrc2": "./images/mees2.jpg",
+			"MoreOver": "About me",
+			"MoreOverText": "My name is Mees Rutten. I'm an aspiring Creative Front-end Developer. I want to create high performance, accessible websites that deliver amazing experiences to the user.",
+			"MoreOverListHeader": "I like to:",
+			"MoreOverListItem1": "Be creative",
+			"MoreOverListItem2": "Workout",
+			"MoreOverListItem3": "Have fun on CodePen",
+			"Link2Href": "https://github.com/meesrutten/",
+			"Link2": "GitHub",
+			"Link1Href": "https://codepen.io/meesrutten/",
+			"Link1": "CodePen",
+			"Button": "See more"
+		}
+	]
+}
