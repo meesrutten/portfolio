@@ -86,7 +86,7 @@
 	.links {
 		display: flex;
 		max-width: 33rem;
-		margin: 4rem auto;
+		margin: 1rem auto;
 		justify-content: space-around;
 	}
 	.view-project {
@@ -94,13 +94,14 @@
 		align-items: center;
 		font-size: 1.5rem;
 		padding-bottom: .5rem;
+		color: lighten($colorBlue, 10%);
 		svg {
 			margin-right: .4rem;
 			width: 2.4rem;
 			height: 2.4rem;
-			fill: $colorBlue;
+			fill: lighten($colorBlue, 10%);
 			path {
-				fill: $colorBlue;
+				fill: lighten($colorBlue, 10%);
 			}
 		}
 		&::after {
