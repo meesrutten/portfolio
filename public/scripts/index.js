@@ -11,15 +11,18 @@ var _backgroundAnimation2 = _interopRequireDefault(_backgroundAnimation);
 
 require('./cardAnimation');
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _swHandler = require('./sw-handler');
 
-// import servicehandler from './sw-handler';
+var _swHandler2 = _interopRequireDefault(_swHandler);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // backgroundAnimation();
 // initialAnimation()
 
-// import hoverPerspectiveAnimation from './hoverPerspectiveAnimation';
 var links = document.querySelectorAll('a');
+// import hoverPerspectiveAnimation from './hoverPerspectiveAnimation';
+
 links.forEach(function (link) {
 	if (link.textContent === '') {
 		link.style = "display: none;";
@@ -34,7 +37,7 @@ links.forEach(function (link) {
 
 // hoverPerspectiveAnimation();
 
-},{"./backgroundAnimation":2,"./cardAnimation":3,"./initialAnimation":6}],2:[function(require,module,exports){
+},{"./backgroundAnimation":2,"./cardAnimation":3,"./initialAnimation":6,"./sw-handler":7}],2:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -626,8 +629,8 @@ var _hoverPerspectiveAnimation2 = _interopRequireDefault(_hoverPerspectiveAnimat
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var initialAnimation = function initialAnimation() {
-	var cardContent = ['#firstCard h1', '#firstCard h2', '#firstCard p', '#firstCard a', '#firstCard button', '.card-shadow'];
-	TweenMax.set(cardContent, { autoAlpha: 0 });
+	var cardContent = ['#firstCard h1', '#firstCard h2', '#firstCard p', '#firstCard h3', '#firstCard a', '#firstCard button', '#firstCard svg', '.card-shadow'];
+	TweenMax.set(cardContent, { autoAlpha: 0, x: -10 });
 	TweenMax.set('#firstCard .card-cta', { rotationX: '-170deg', autoAlpha: 0, transformOrigin: 'top' });
 	TweenMax.set('#firstCard .card-leftHalf', { rotationY: '-170deg', autoAlpha: 0, transformOrigin: 'right' });
 	TweenMax.set('#firstCard', { x: '-25%', y: '-50vh', autoAlpha: 0, transformOrigin: 'center' });
@@ -659,15 +662,17 @@ var initialAnimation = function initialAnimation() {
 		});
 	}
 	function flipCardShowContent() {
-		TweenMax.staggerTo(cardContent, .6, {
-			autoAlpha: 1, onComplete: function onComplete() {
+		TweenMax.staggerTo(cardContent, .9, {
+			autoAlpha: 1,
+			x: 0,
+			onComplete: function onComplete() {
 				(0, _hoverPerspectiveAnimation2.default)();
 				TweenMax.to('.card-shadow', .3, { autoAlpha: 1 });
 				if (document.querySelectorAll('#firstCard')[0]) {
 					document.querySelectorAll('#firstCard')[0].setAttribute('aria-busy', 'false');
 				}
 			}
-		}, 0.3);
+		}, 0.2);
 	}
 };
 
@@ -692,4 +697,39 @@ exports.default = initialAnimation;
 // 	// Disable entire IntersectionObserver
 // 	// io.disconnect();
 
-},{"./hoverPerspectiveAnimation":4}]},{},[5]);
+},{"./hoverPerspectiveAnimation":4}],7:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+// https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorker
+var servicehandler = function () {
+	if ('serviceWorker' in navigator) {
+		navigator.serviceWorker.register('/sw.js', {
+			scope: './'
+		}).then(function (registration) {
+			var serviceWorker;
+			if (registration.installing) {
+				serviceWorker = registration.installing;
+			} else if (registration.waiting) {
+				serviceWorker = registration.waiting;
+			} else if (registration.active) {
+				serviceWorker = registration.active;
+			}
+			if (serviceWorker) {
+				// logState(serviceWorker.state);
+				serviceWorker.addEventListener('statechange', function (e) {
+					// logState(e.target.state);
+				});
+			}
+		}).catch(function (error) {
+			// Something went wrong during registration. The service-worker.js file
+			// might be unavailable or contain a syntax error.
+		});
+	}
+}();
+
+exports.default = servicehandler;
+
+},{}]},{},[5]);

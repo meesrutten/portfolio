@@ -80,8 +80,41 @@
 			z-index: 3;
 		}
 	}
+	footer {
+		text-align: center;
+		margin: 2rem auto;
+		p {
+			font-size: 1.5rem
+		}
+		a {
+			display: flex;
+			color: lighten($colorBlue, 10%);
+			font-size: 1.5rem;
+			width: fit-content;
+			margin: 1rem auto;
+			justify-content: space-around;
+			padding-bottom: .5rem;
+			svg {
+				margin-right: .4rem;
+				width: 2.4rem;
+				height: 2.4rem;
+				// fill: lighten($colorBlue, 10%);
+				// path {
+				// 	fill: lighten($colorBlue, 10%);
+				// }
+				.st0, #surface1 {
+					fill: #3e73f3 !important;
+				}
+			}
+
+			&::after {
+				z-index: 3;
+			}
+		}
+	}
 	.text-for-button {
 		text-align: center;
+		font-size: 1.5rem;
 	}
 	.links {
 		display: flex;

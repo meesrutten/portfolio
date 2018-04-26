@@ -201,6 +201,7 @@ $flipVertical: 600ms;
 			}
 			.card-button-link {
 				margin-right: auto;
+				font-size: 1.25rem;
 				&:hover {
 					&:after {
 						display: none;
@@ -334,6 +335,21 @@ $flipVertical: 600ms;
 			
 			transform-style: preserve-3d;
 			transform-origin: top;
+		}
+		ul {
+			list-style-type: none;
+			margin: 0;
+			li {
+				padding-bottom: 0;
+				padding-top: 1rem;
+				padding-left: 1.2rem;
+				a{
+					padding: 0 0 .25rem 0;
+				}
+				&::before {
+					display: none;
+				}
+			}
 		}
 	}
 	h1, h2, h3, p, li {

@@ -1,8 +1,8 @@
 import hoverPerspectiveAnimation from './hoverPerspectiveAnimation'
 
 const initialAnimation = function() {
-	const cardContent = ['#firstCard h1', '#firstCard h2', '#firstCard p', '#firstCard a', '#firstCard button', '.card-shadow']
-	TweenMax.set(cardContent, { autoAlpha: 0 })
+	const cardContent = ['#firstCard h1', '#firstCard h2', '#firstCard p', '#firstCard h3', '#firstCard a', '#firstCard button', '#firstCard svg', '.card-shadow']
+	TweenMax.set(cardContent, { autoAlpha: 0, x: -10 })
 	TweenMax.set('#firstCard .card-cta', { rotationX: '-170deg', autoAlpha: 0, transformOrigin: 'top' })
 	TweenMax.set('#firstCard .card-leftHalf', { rotationY: '-170deg', autoAlpha: 0, transformOrigin: 'right' })
 	TweenMax.set('#firstCard', {x: '-25%', y: '-50vh', autoAlpha: 0, transformOrigin: 'center'}) 
@@ -39,15 +39,17 @@ const initialAnimation = function() {
 		})
 	}
 	function flipCardShowContent() {
-		TweenMax.staggerTo(cardContent, .6, {
-			 autoAlpha: 1, onComplete: function(){
+		TweenMax.staggerTo(cardContent, .9, {
+			 autoAlpha: 1, 
+			 x: 0,
+			 onComplete: function(){
 				hoverPerspectiveAnimation();
 				TweenMax.to('.card-shadow', .3, {autoAlpha: 1});
 				 if (document.querySelectorAll('#firstCard')[0]){
 					 document.querySelectorAll('#firstCard')[0].setAttribute('aria-busy', 'false')
 				 }
 			}
-		}, 0.3)
+		}, 0.2)
 	}
 }
 

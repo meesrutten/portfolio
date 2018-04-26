@@ -27,6 +27,31 @@
 								<%- firstCard[key][0].title %>
 							</h1>
 							<p><%- firstCard[key][0].MoreOverText %></p>
+							<h3><%- firstCard[key][0].MoreOverListHeader %></h3>
+							<ul>
+								<%if(firstCard[key][0].MoreOverListItem1.length > 0){ %>
+									<li>
+										<a href="mailto:meesrutten@gmail.com">
+											<%- firstCard[key][0].MoreOverListItem1 %>
+										</a>
+									</li>
+								<% } %>
+								<%if(firstCard[key][0].MoreOverListItem2.length > 0){ %>
+									<li>
+										<a href="https://twitter.com/meesrttn">
+											<%- firstCard[key][0].MoreOverListItem2 %>
+										</a>
+									</li>
+								<% } %>
+								<%if(firstCard[key][0].MoreOverListItem3.length > 0){ %>
+									<li>
+										<a href="">
+											<%- firstCard[key][0].MoreOverListItem3 %>
+										</a>
+									</li>
+								<% } %>
+							</ul>
+
 						</article>
 						<section class="card-cta">
 							<nav role="navigation">
