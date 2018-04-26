@@ -82,7 +82,7 @@ I followed certain principles of UIDesign by Joshua Porter.\
 <img src="./readme-images/portfolio-v2.png" alt="Image of portfolio" height="auto" width="600" style="margin: 2em auto; display: block;">
 <p>Version 1.1.0 of my portfolio</p>
 
-<img src="./readme-images/portfolio-v1.png" alt="Image of portfolio" height="auto" width="600" style="margin: 2em auto; display: block;">
+<img src="./readme-images/portfolio-v3.png" alt="Image of portfolio" height="auto" width="600" style="margin: 2em auto; display: block;">
 <p>Version 1.2.0 of my portfolio, probably the final version</p>
 
 ## Animation
