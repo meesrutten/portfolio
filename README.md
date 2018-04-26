@@ -170,6 +170,7 @@ The user story I wrote is for a man at a Creative Digital company who sees appli
 As a manager of my team, I want to see interesting and creative websites, research and solutions by people who want to work at my company. I want to see work of students who can make websites feel alive and well. The website should radiate a feeling that I as a viewer can emerge in and not feel bothered by it.
 
 ### Larissa 
+<img src="./readme-images/test-with-larissa.png" alt="Image of portfolio" height="auto" width="600" style="margin: 2em auto; display: block;">
 As a (near)blind user, I want to be able to use the website functionalities as fast and correct as possible with a screenreader and keyboard navigation so that I can enjoy it's purpose and use the web without struggling
 
 ## To do and future
