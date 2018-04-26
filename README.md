@@ -145,6 +145,11 @@ This website was an exercise for my study.
 The user story I wrote is for a man at a Creative Digital company who sees applications and hires Front-end Developers and interns.
 
 ### John the CEO
-As a manager of my team, I want to see interesting and creative websites, research and solutions by people who want to work at my company.
+As a manager of my team, I want to see interesting and creative websites, research and solutions by people who want to work at my company. I want to see work of students who can make websites feel alive and well. The website should radiate a feeling that I as a viewer can emerge in and not feel bothered by it.
 
 ## To do and future
+1. Make a mobile version
+2. Increase the performance on browsers like Firefox, Safari and Edge
+3. Add a serviceworker
+4. Add progressive image loading
+5. Reduce first load heavily
