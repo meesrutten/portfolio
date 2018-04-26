@@ -1,6 +1,7 @@
 import hoverPerspectiveAnimation from './hoverPerspectiveAnimation'
 
 const initialAnimation = function() {
+	TweenMax.globalTimeScale(1.25)
 	const cardContent = ['#firstCard h1', '#firstCard h2', '#firstCard p', '#firstCard h3', '#firstCard a', '#firstCard button', '#firstCard svg', '.card-shadow']
 	TweenMax.set(cardContent, { autoAlpha: 0, x: -10 })
 	TweenMax.set('#firstCard .card-cta', { rotationX: '-170deg', autoAlpha: 0, transformOrigin: 'top' })

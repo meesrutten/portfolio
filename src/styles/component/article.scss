@@ -52,8 +52,8 @@
 		padding: .25rem .5rem;
 	}
 	.image-overlay-corners {
-		height: 70vh;
-		bottom: 0;
+		// height: 70vh;
+		// bottom: calc(-26rem / 2);
 		img {
 			// width: 50%;
 			transition: transform ease-out 200ms;
@@ -183,6 +183,24 @@
 	// 		}
 	// 	}
 	// }
+	@media screen and(max-width: 40rem) {
+		padding: 1rem;
+		h1 {
+			font-size: 3rem;
+		}
+		h2 {
+			font-size: 2rem;
+		}
+		figcaption {
+			font-size: 1rem;
+		}
+		figure {
+			font-size: 1rem;
+			margin: 2em 0;
+			position: relative;
+			bottom: -2em;
+		}
+	}
 }
 .article-animation {
 	height: 50vh;

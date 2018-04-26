@@ -1,11 +1,14 @@
 function hoverPerspectiveAnimation() {
+	if (window.matchMedia("(min-width: 40rem)").matches) {
+	/* the viewport is at least 400 pixels wide */
+
 	const cards = document.querySelectorAll('.card');
 
 	let mouseOutTween;// set on mouse-out
 
 	TweenMax.set(cards, { transformPerspective: 800, transformStyle: "preserve-3d" });
 
-	function addHoverPerspectiveAnimation(el){
+	function addHoverPerspectiveAnimation(el) {
 		el.addEventListener('click', function (e) {
 			let rect = el.getBoundingClientRect(),
 				x = e.clientX - rect.left,
@@ -107,7 +110,7 @@ function hoverPerspectiveAnimation() {
 
 	const observer = new IntersectionObserver(intersectionCallback, observerOptions);
 
-	cards.forEach( (card) => {
+	cards.forEach((card) => {
 		observer.observe(card)
 		// TweenMax.set(card, { delay: .6, rotationY: 15, rotationX: 15 })
 	})
@@ -132,23 +135,24 @@ function hoverPerspectiveAnimation() {
 			// }
 			if (entry.intersectionRatio > prevRatio && entry.intersectionRatio < .9) {
 				// console.log('in view', entry.intersectionRatio);
-				TweenMax.to(box, .3, { rotationX: `${entry.intersectionRatio * 4}deg`, ease: Power1.easeOut /*, rotationX: `${-entry.intersectionRatio * 10}deg` */})
+				TweenMax.to(box, .3, { rotationX: `${entry.intersectionRatio * 4}deg`, ease: Power1.easeOut /*, rotationX: `${-entry.intersectionRatio * 10}deg` */ })
 				// box.style = `transform: rotateX(${ (-entry.intersectionRatio * 15).toFixed(2) }deg) rotateY(${ (entry.intersectionRatio * 15).toFixed(2) }deg)`
 			}
 			else {
 				// console.log('out of view', entry.intersectionRatio);
-				TweenMax.to(box, .3, { rotationX: `${-entry.intersectionRatio * 4}deg`, ease: Power1.easeOut /*, rotationX: `${entry.intersectionRatio * 10}deg`} */})
+				TweenMax.to(box, .3, { rotationX: `${-entry.intersectionRatio * 4}deg`, ease: Power1.easeOut /*, rotationX: `${entry.intersectionRatio * 10}deg`} */ })
 				// box.style = `transform: rotateY(${(-entry.intersectionRatio * 15).toFixed(2)}deg) rotateX(${(entry.intersectionRatio * 15).toFixed(2)}deg)`
 
 			}
 			if (entry.intersectionRatio >= .9) {
-				TweenMax.to(box, 1, { 
-					rotationY: 0, 
-					rotationX: 0, 
+				TweenMax.to(box, 1, {
+					rotationY: 0,
+					rotationX: 0,
 					ease: Power1.easeOut,
-					onComplete: function(){
+					onComplete: function () {
 						addHoverPerspectiveAnimation(box)
-					} })
+					}
+				})
 				// box.style = `transform: rotateX(0deg) rotateY(0deg)`
 
 			}
@@ -167,10 +171,13 @@ function hoverPerspectiveAnimation() {
 	// 	});
 	// }
 
-}
-
+	}
+	else {
+		/* the viewport is less than 400 pixels wide */
+		console.log('smaller than 40rem');
+	}
+} 
 export default hoverPerspectiveAnimation;
-
 
 // TweenMax.set('h2', { autoAlpha: 0, y: '-50%', scale: .5 })
 

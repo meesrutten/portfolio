@@ -2,7 +2,7 @@ import initialAnimation from './initialAnimation';
 // import hoverPerspectiveAnimation from './hoverPerspectiveAnimation';
 import backgroundAnimation from './backgroundAnimation';
 import './cardAnimation';
-import servicehandler from './sw-handler';
+// import servicehandler from './sw-handler';
 
 // backgroundAnimation();
 // initialAnimation()

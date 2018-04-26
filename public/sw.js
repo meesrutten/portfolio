@@ -1,10 +1,9 @@
-const STATIC_CACHE = 'static-cache-v1';
+const STATIC_CACHE = 'static-cache-v2';
 
 self.addEventListener('install', event => {
 	event.waitUntil(
 		caches.open(STATIC_CACHE)
 			.then(cache => cache.addAll([
-				'/',
 				'/scripts/index.js',
 				'/scripts/libs/TweenMax.min.js',
 				'/scripts/libs/barba.min.js',

@@ -11,18 +11,15 @@ var _backgroundAnimation2 = _interopRequireDefault(_backgroundAnimation);
 
 require('./cardAnimation');
 
-var _swHandler = require('./sw-handler');
-
-var _swHandler2 = _interopRequireDefault(_swHandler);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// import servicehandler from './sw-handler';
 
 // backgroundAnimation();
 // initialAnimation()
 
-var links = document.querySelectorAll('a');
 // import hoverPerspectiveAnimation from './hoverPerspectiveAnimation';
-
+var links = document.querySelectorAll('a');
 links.forEach(function (link) {
 	if (link.textContent === '') {
 		link.style = "display: none;";
@@ -37,7 +34,7 @@ links.forEach(function (link) {
 
 // hoverPerspectiveAnimation();
 
-},{"./backgroundAnimation":2,"./cardAnimation":3,"./initialAnimation":6,"./sw-handler":7}],2:[function(require,module,exports){
+},{"./backgroundAnimation":2,"./cardAnimation":3,"./initialAnimation":6}],2:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -402,177 +399,184 @@ document.addEventListener("DOMContentLoaded", function () {
 // }
 
 },{"./backgroundAnimation":2,"./initialAnimation":6}],4:[function(require,module,exports){
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 function hoverPerspectiveAnimation() {
-	var cards = document.querySelectorAll('.card');
+	if (window.matchMedia("(min-width: 40rem)").matches) {
+		var addHoverPerspectiveAnimation = function addHoverPerspectiveAnimation(el) {
+			el.addEventListener('click', function (e) {
+				var rect = el.getBoundingClientRect(),
+				    x = e.clientX - rect.left,
+				    y = e.clientY - rect.top,
+				    hit = { x: x, y: y, radius: 1, autoAlpha: 1 };
 
-	var mouseOutTween = void 0; // set on mouse-out
+				TweenMax.to(hit, 0.5, { radius: 200, autoAlpha: 0, ease: Power1.easeOut });
+			});
 
-	TweenMax.set(cards, { transformPerspective: 800, transformStyle: "preserve-3d" });
+			el.addEventListener('mousemove', function (e) {
+				var rect = el.getBoundingClientRect(),
+				    x = e.clientX - rect.left,
+				    y = e.clientY - rect.top,
+				    rx = -(y / rect.height) + 0.5,
+				    ry = x / rect.width - 0.5,
+				    rMax = 1;
 
-	function addHoverPerspectiveAnimation(el) {
-		el.addEventListener('click', function (e) {
-			var rect = el.getBoundingClientRect(),
-			    x = e.clientX - rect.left,
-			    y = e.clientY - rect.top,
-			    hit = { x: x, y: y, radius: 1, autoAlpha: 1 };
+				TweenMax.to(el, 0.1, { rotationX: rx * rMax, rotationY: ry * rMax });
+			});
 
-			TweenMax.to(hit, 0.5, { radius: 200, autoAlpha: 0, ease: Power1.easeOut });
-		});
+			el.addEventListener('mouseout', function () {
+				if (mouseOutTween) mouseOutTween.kill();
+				mouseOutTween = TweenMax.to(el, 0.25, { delay: 0.25, rotationX: 0, rotationY: 0 });
+			});
+		};
+		// cards.forEach((el) => {
+		// 	// el.style = "filter:url('#drop-shadow');"
 
-		el.addEventListener('mousemove', function (e) {
-			var rect = el.getBoundingClientRect(),
-			    x = e.clientX - rect.left,
-			    y = e.clientY - rect.top,
-			    rx = -(y / rect.height) + 0.5,
-			    ry = x / rect.width - 0.5,
-			    rMax = 1;
+		// 	el.addEventListener('click', function (e) {
+		// 		let rect = el.getBoundingClientRect(),
+		// 			x = e.clientX - rect.left,
+		// 			y = e.clientY - rect.top,
+		// 			hit = { x: x, y: y, radius: 1, autoAlpha: 1 };
 
-			TweenMax.to(el, 0.1, { rotationX: rx * rMax, rotationY: ry * rMax });
-		});
+		// 		TweenMax.to(hit, 0.5, { radius: 200, autoAlpha: 0, ease: Power1.easeOut });
 
-		el.addEventListener('mouseout', function () {
-			if (mouseOutTween) mouseOutTween.kill();
-			mouseOutTween = TweenMax.to(el, 0.25, { delay: 0.25, rotationX: 0, rotationY: 0 });
-		});
-	}
-	// cards.forEach((el) => {
-	// 	// el.style = "filter:url('#drop-shadow');"
+		// 	});
 
-	// 	el.addEventListener('click', function (e) {
-	// 		let rect = el.getBoundingClientRect(),
-	// 			x = e.clientX - rect.left,
-	// 			y = e.clientY - rect.top,
-	// 			hit = { x: x, y: y, radius: 1, autoAlpha: 1 };
+		// 	el.addEventListener('mousemove', function (e) {
+		// 		let rect = el.getBoundingClientRect(),
+		// 			x = e.clientX - rect.left,
+		// 			y = e.clientY - rect.top,
+		// 			rx = -(y / rect.height) + 0.5,
+		// 			ry = (x / rect.width) - 0.5,
+		// 			rMax = 1;
 
-	// 		TweenMax.to(hit, 0.5, { radius: 200, autoAlpha: 0, ease: Power1.easeOut });
+		// 		TweenMax.to(el, 0.1, { rotationX: rx * rMax, rotationY: ry * rMax });
+		// 	});
 
-	// 	});
+		// 	el.addEventListener('mouseout', function () {
+		// 		if (mouseOutTween) mouseOutTween.kill();
+		// 		mouseOutTween = TweenMax.to(el, 0.25, { delay: 0.25, rotationX: 0, rotationY: 0 });
+		// 	});
 
-	// 	el.addEventListener('mousemove', function (e) {
-	// 		let rect = el.getBoundingClientRect(),
-	// 			x = e.clientX - rect.left,
-	// 			y = e.clientY - rect.top,
-	// 			rx = -(y / rect.height) + 0.5,
-	// 			ry = (x / rect.width) - 0.5,
-	// 			rMax = 1;
-
-	// 		TweenMax.to(el, 0.1, { rotationX: rx * rMax, rotationY: ry * rMax });
-	// 	});
-
-	// 	el.addEventListener('mouseout', function () {
-	// 		if (mouseOutTween) mouseOutTween.kill();
-	// 		mouseOutTween = TweenMax.to(el, 0.25, { delay: 0.25, rotationX: 0, rotationY: 0 });
-	// 	});
-
-	// });
-
-	// window.addEventListener("deviceorientation", handleOrientation, true);
-
-	// /**
-	//  *  x: Represents the axis from West to East
-	//  *	y: Represents the axis from South to North
-	//  *	z: Represents the axis perpendicular to the ground
-	//  * @param {*} e 
-	//  */
-	// function handleOrientation(e) {
-	// 	let absolute = e.absolute;
-	// 	let alpha = e.alpha;
-	// 	let beta = e.beta; // X, In degree in the range [-180,180]
-	// 	let gamma = e.gamma;// Y, In degree in the range [-90,90]
-	// 	// console.log(alpha, beta, gamma);
-	// 	cards.forEach( (el) => {
-	// 		let rect = el.getBoundingClientRect(),
-	// 			x = beta - rect.left,
-	// 			y = gamma - rect.top,
-	// 			rx = -(y / rect.height) + 0.5,
-	// 			ry = (x / rect.width) - 0.5,
-	// 			rMax = 3;
-	// 		console.log(rx * rMax, ry * rMax);
-	// 		TweenMax.to(el, 0.1, { rotationX: `${rx * rMax}deg`, rotationY: `${ry * rMax}deg` });
-	// 		// elem.style.transform =
-	// 		// 	"rotateY(" + (-e.gamma) + "deg)" +
-	// 		// 	"rotateX(" + e.beta + "deg) " +
-	// 		// 	"rotateZ(" + - (e.alpha - 180) + "deg) ";
-	// 		// });
-	// 	// TweenMax.to(el, 0.1, { rotationY: `${-gamma}deg`, rotationX: `${-beta}deg`, rotationZ: `-${alpha - 180}deg`})
-
-	// 	})
-	// }
-
-
-	// TweenLite.set(".card", { perspective: 800, transformStyle: "preserve-3d" });
-
-	var observerOptions = {
-		root: null,
-		rootMargin: "0px",
-		threshold: [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
-	};
-
-	var observer = new IntersectionObserver(intersectionCallback, observerOptions);
-
-	cards.forEach(function (card) {
-		observer.observe(card);
-		// TweenMax.set(card, { delay: .6, rotationY: 15, rotationX: 15 })
-	});
-
-	var prevRatio = 0.0;
-
-	function intersectionCallback(entries) {
-		// entries.forEach(function (entry) {
-		// 	console.log(box, entry.intersectionRatio);
-		// 	if (entry.intersectionRatio > 0) {
-		// 		TweenLite.to(".card", { rotationY: 10, rotationX: 10 });
-		// 	}
 		// });
-		entries.forEach(function (entry) {
-			var box = entry.target;
-			// console.log(box);
-			// if (entry.intersectionRatio > 0) {
-			// 	TweenMax.to(box, .6, { autoAlpha: 1 })
-			// }
-			// else {
-			// 	TweenMax.set(box, { autoAlpha: 0})
-			// }
-			if (entry.intersectionRatio > prevRatio && entry.intersectionRatio < .9) {
-				// console.log('in view', entry.intersectionRatio);
-				TweenMax.to(box, .3, { rotationX: entry.intersectionRatio * 4 + 'deg', ease: Power1.easeOut /*, rotationX: `${-entry.intersectionRatio * 10}deg` */ });
-				// box.style = `transform: rotateX(${ (-entry.intersectionRatio * 15).toFixed(2) }deg) rotateY(${ (entry.intersectionRatio * 15).toFixed(2) }deg)`
-			} else {
-				// console.log('out of view', entry.intersectionRatio);
-				TweenMax.to(box, .3, { rotationX: -entry.intersectionRatio * 4 + 'deg', ease: Power1.easeOut /*, rotationX: `${entry.intersectionRatio * 10}deg`} */ });
-				// box.style = `transform: rotateY(${(-entry.intersectionRatio * 15).toFixed(2)}deg) rotateX(${(entry.intersectionRatio * 15).toFixed(2)}deg)`
-			}
-			if (entry.intersectionRatio >= .9) {
-				TweenMax.to(box, 1, {
-					rotationY: 0,
-					rotationX: 0,
-					ease: Power1.easeOut,
-					onComplete: function onComplete() {
-						addHoverPerspectiveAnimation(box);
-					} });
-				// box.style = `transform: rotateX(0deg) rotateY(0deg)`
-			}
-			prevRatio = entry.intersectionRatio;
+
+		// window.addEventListener("deviceorientation", handleOrientation, true);
+
+		// /**
+		//  *  x: Represents the axis from West to East
+		//  *	y: Represents the axis from South to North
+		//  *	z: Represents the axis perpendicular to the ground
+		//  * @param {*} e 
+		//  */
+		// function handleOrientation(e) {
+		// 	let absolute = e.absolute;
+		// 	let alpha = e.alpha;
+		// 	let beta = e.beta; // X, In degree in the range [-180,180]
+		// 	let gamma = e.gamma;// Y, In degree in the range [-90,90]
+		// 	// console.log(alpha, beta, gamma);
+		// 	cards.forEach( (el) => {
+		// 		let rect = el.getBoundingClientRect(),
+		// 			x = beta - rect.left,
+		// 			y = gamma - rect.top,
+		// 			rx = -(y / rect.height) + 0.5,
+		// 			ry = (x / rect.width) - 0.5,
+		// 			rMax = 3;
+		// 		console.log(rx * rMax, ry * rMax);
+		// 		TweenMax.to(el, 0.1, { rotationX: `${rx * rMax}deg`, rotationY: `${ry * rMax}deg` });
+		// 		// elem.style.transform =
+		// 		// 	"rotateY(" + (-e.gamma) + "deg)" +
+		// 		// 	"rotateX(" + e.beta + "deg) " +
+		// 		// 	"rotateZ(" + - (e.alpha - 180) + "deg) ";
+		// 		// });
+		// 	// TweenMax.to(el, 0.1, { rotationY: `${-gamma}deg`, rotationX: `${-beta}deg`, rotationZ: `-${alpha - 180}deg`})
+
+		// 	})
+		// }
+
+
+		// TweenLite.set(".card", { perspective: 800, transformStyle: "preserve-3d" });
+
+		var intersectionCallback = function intersectionCallback(entries) {
+			// entries.forEach(function (entry) {
+			// 	console.log(box, entry.intersectionRatio);
+			// 	if (entry.intersectionRatio > 0) {
+			// 		TweenLite.to(".card", { rotationY: 10, rotationX: 10 });
+			// 	}
+			// });
+			entries.forEach(function (entry) {
+				var box = entry.target;
+				// console.log(box);
+				// if (entry.intersectionRatio > 0) {
+				// 	TweenMax.to(box, .6, { autoAlpha: 1 })
+				// }
+				// else {
+				// 	TweenMax.set(box, { autoAlpha: 0})
+				// }
+				if (entry.intersectionRatio > prevRatio && entry.intersectionRatio < .9) {
+					// console.log('in view', entry.intersectionRatio);
+					TweenMax.to(box, .3, { rotationX: entry.intersectionRatio * 4 + "deg", ease: Power1.easeOut /*, rotationX: `${-entry.intersectionRatio * 10}deg` */ });
+					// box.style = `transform: rotateX(${ (-entry.intersectionRatio * 15).toFixed(2) }deg) rotateY(${ (entry.intersectionRatio * 15).toFixed(2) }deg)`
+				} else {
+					// console.log('out of view', entry.intersectionRatio);
+					TweenMax.to(box, .3, { rotationX: -entry.intersectionRatio * 4 + "deg", ease: Power1.easeOut /*, rotationX: `${entry.intersectionRatio * 10}deg`} */ });
+					// box.style = `transform: rotateY(${(-entry.intersectionRatio * 15).toFixed(2)}deg) rotateX(${(entry.intersectionRatio * 15).toFixed(2)}deg)`
+				}
+				if (entry.intersectionRatio >= .9) {
+					TweenMax.to(box, 1, {
+						rotationY: 0,
+						rotationX: 0,
+						ease: Power1.easeOut,
+						onComplete: function onComplete() {
+							addHoverPerspectiveAnimation(box);
+						}
+					});
+					// box.style = `transform: rotateX(0deg) rotateY(0deg)`
+				}
+				prevRatio = entry.intersectionRatio;
+			});
+		};
+		// function handleIntersect(entries, observer) {
+		// 	entries.forEach(function (entry) {
+		// 		if (entry.intersectionRatio > prevRatio) {
+		// 			entry.target.style.backgroundColor = increasingColor.replace("ratio", entry.intersectionRatio);
+		// 		} else {
+		// 			entry.target.style.backgroundColor = decreasingColor.replace("ratio", entry.intersectionRatio);
+		// 		}
+
+		// 		prevRatio = entry.intersectionRatio;
+		// 	});
+		// }
+
+		/* the viewport is at least 400 pixels wide */
+
+		var cards = document.querySelectorAll('.card');
+
+		var mouseOutTween = void 0; // set on mouse-out
+
+		TweenMax.set(cards, { transformPerspective: 800, transformStyle: "preserve-3d" });
+
+		var observerOptions = {
+			root: null,
+			rootMargin: "0px",
+			threshold: [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
+		};
+
+		var observer = new IntersectionObserver(intersectionCallback, observerOptions);
+
+		cards.forEach(function (card) {
+			observer.observe(card);
+			// TweenMax.set(card, { delay: .6, rotationY: 15, rotationX: 15 })
 		});
+
+		var prevRatio = 0.0;
+	} else {
+		/* the viewport is less than 400 pixels wide */
+		console.log('smaller than 40rem');
 	}
-	// function handleIntersect(entries, observer) {
-	// 	entries.forEach(function (entry) {
-	// 		if (entry.intersectionRatio > prevRatio) {
-	// 			entry.target.style.backgroundColor = increasingColor.replace("ratio", entry.intersectionRatio);
-	// 		} else {
-	// 			entry.target.style.backgroundColor = decreasingColor.replace("ratio", entry.intersectionRatio);
-	// 		}
-
-	// 		prevRatio = entry.intersectionRatio;
-	// 	});
-	// }
 }
-
 exports.default = hoverPerspectiveAnimation;
 
 // TweenMax.set('h2', { autoAlpha: 0, y: '-50%', scale: .5 })
@@ -629,6 +633,7 @@ var _hoverPerspectiveAnimation2 = _interopRequireDefault(_hoverPerspectiveAnimat
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var initialAnimation = function initialAnimation() {
+	TweenMax.globalTimeScale(1.25);
 	var cardContent = ['#firstCard h1', '#firstCard h2', '#firstCard p', '#firstCard h3', '#firstCard a', '#firstCard button', '#firstCard svg', '.card-shadow'];
 	TweenMax.set(cardContent, { autoAlpha: 0, x: -10 });
 	TweenMax.set('#firstCard .card-cta', { rotationX: '-170deg', autoAlpha: 0, transformOrigin: 'top' });
@@ -697,39 +702,4 @@ exports.default = initialAnimation;
 // 	// Disable entire IntersectionObserver
 // 	// io.disconnect();
 
-},{"./hoverPerspectiveAnimation":4}],7:[function(require,module,exports){
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-// https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorker
-var servicehandler = function () {
-	if ('serviceWorker' in navigator) {
-		navigator.serviceWorker.register('/sw.js', {
-			scope: './'
-		}).then(function (registration) {
-			var serviceWorker;
-			if (registration.installing) {
-				serviceWorker = registration.installing;
-			} else if (registration.waiting) {
-				serviceWorker = registration.waiting;
-			} else if (registration.active) {
-				serviceWorker = registration.active;
-			}
-			if (serviceWorker) {
-				// logState(serviceWorker.state);
-				serviceWorker.addEventListener('statechange', function (e) {
-					// logState(e.target.state);
-				});
-			}
-		}).catch(function (error) {
-			// Something went wrong during registration. The service-worker.js file
-			// might be unavailable or contain a syntax error.
-		});
-	}
-}();
-
-exports.default = servicehandler;
-
-},{}]},{},[5]);
+},{"./hoverPerspectiveAnimation":4}]},{},[5]);

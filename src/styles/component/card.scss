@@ -342,7 +342,7 @@ $flipVertical: 600ms;
 			li {
 				padding-bottom: 0;
 				padding-top: 1rem;
-				padding-left: 1.2rem;
+				padding-left: 1rem;
 				a{
 					padding: 0 0 .25rem 0;
 				}
@@ -354,6 +354,46 @@ $flipVertical: 600ms;
 	}
 	h1, h2, h3, p, li {
 		text-shadow: 1px 1px 1px rgba(50,50,50,0.1);
+	}
+}
+
+@media screen and(max-width: 40rem) {
+	.card-holder {
+
+	}
+	.card, #firstCard {
+		flex-flow: column wrap;
+		height: auto;
+		width: 95%;
+		margin: 1rem auto 3rem auto;
+		.flipper {
+			height: auto;
+			> div {
+				flex-flow: column wrap;
+				height: auto;
+			}
+		}
+		&-leftHalf {
+			width: 100%;
+			flex-flow: column wrap;
+			img {
+				position: initial;
+				top: initial;
+			}
+		}
+		&-rightHalf {
+			width: 100%;
+			.card-info {
+				h1, h2 {
+					padding-top: 2rem;
+				}
+			}
+			.card-cta {
+				.card-button-link {
+					font-size: 1rem;
+				}
+			}
+		}
 	}
 }
 
