@@ -1,6 +1,9 @@
 # The design of my portfolio
 
 - **[About this project](#about-this-project)**  
+- **[User story](#user-story)**  
+	- **[John the CEO](#john-the-ceo)**  
+	- **[Larissa](#larissa)**  
 - **[Design](#design)**  
 - **[Sketches and content inventarisation](#sketches-and-content-inventarisation)**  
 - **[Principles of User Interface Design](#principles-of-user-interface-design)**  
@@ -13,14 +16,22 @@
 - **[What I learned from Larissa](#what-i-learned-from-larissa)**  
 	- **[Internet usage of a nearly blind person](#internet-usage-of-a-nearly-blind-person)**  
 	- **[Testing my portfolio with Larissa](#testing-my-portfolio-with-larissa)**  
-- **[User story](#user-story)**  
-	- **[John the CEO](#john-the-ceo)**  
-	- **[Larissa](#larissa)**  
 - **[To do and future](#to-do-and-future)**  
 
 ## About this project
 This project is my personal portfolio of project i'm proud about and things I did.
 I'm focussing **heavily** on animation, which should have been clear when you saw the site ;).
+
+## User story
+This website was an exercise for my study.
+The user story I wrote is for a man at a Creative Digital company who sees applications and hires Front-end Developers and interns.
+
+### John the CEO
+As a manager of my team, I want to see interesting and creative websites, research and solutions by people who want to work at my company. I want to see work of students who can make websites feel alive and well. The website should radiate a feeling that I as a viewer can emerge in and not feel bothered by it.
+
+### Larissa 
+<img src="./readme-images/test-with-larissa.png" alt="Image of portfolio" height="auto" width="600" style="margin: 2em auto; display: block;">
+As a (near)blind user, I want to be able to use the website functionalities as fast and correct as possible with a screenreader and keyboard navigation so that I can enjoy it's purpose and use the web without struggling
 
 ## Design
 This design features an interactive card design.\
@@ -161,17 +172,6 @@ My observations:
 - Larissa did not seem bothered by the animation
 	> After I toggled the `aria-busy` attribute
 - She didn't feel like hearing the 'story-told' animation
-
-## User story
-This website was an exercise for my study.
-The user story I wrote is for a man at a Creative Digital company who sees applications and hires Front-end Developers and interns.
-
-### John the CEO
-As a manager of my team, I want to see interesting and creative websites, research and solutions by people who want to work at my company. I want to see work of students who can make websites feel alive and well. The website should radiate a feeling that I as a viewer can emerge in and not feel bothered by it.
-
-### Larissa 
-<img src="./readme-images/test-with-larissa.png" alt="Image of portfolio" height="auto" width="600" style="margin: 2em auto; display: block;">
-As a (near)blind user, I want to be able to use the website functionalities as fast and correct as possible with a screenreader and keyboard navigation so that I can enjoy it's purpose and use the web without struggling
 
 ## To do and future
 1. Make a mobile version
