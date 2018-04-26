@@ -2,6 +2,7 @@
 
 - **[About this project](#about-this-project)**  
 - **[Design](#design)**  
+- **[Sketches and content inventarisation](#sketches-and-content-inventarisation)**  
 - **[Principles of User Interface Design](#principles-of-user-interface-design)**  
 - **[Feedback by Mo Mulazada](#feedback-by-mo-mulazada)**  
 - **[Fixes based on feedback by Mo](#fixes-based-on-feedback-by-mo)**  
@@ -14,6 +15,7 @@
 	- **[Testing my portfolio with Larissa](#testing-my-portfolio-with-larissa)**  
 - **[User story](#user-story)**  
 	- **[John the CEO](#john-the-ceo)**  
+	- **[Larissa](#larissa)**  
 - **[To do and future](#to-do-and-future)**  
 
 ## About this project
@@ -28,6 +30,22 @@ On first load, the zero state, the user will see an animation of the card to giv
 If the user hovers over a card he will see it moving in depth, this effect should give the user a clue that there is more content behind or within the card.\
 When scrolling the cards will change in depth for the same effect named above.\
 When interacting with the primary action, the card will flip or fold and reveal it's contents.\
+
+## Sketches and content inventarisation
+<img src="./readme-images/card-sorting.jpg" alt="Image of portfolio" height="auto" width="800" style="margin: 2em auto; display: block;">
+<p>Card sorting for content inventarisation</p>
+
+<img src="./readme-images/design.jpg" alt="Image of portfolio" height="auto" width="800" style="margin: 2em auto; display: block;">
+<p>First sketch</p>
+
+<img src="./readme-images/card.jpg" alt="Image of portfolio" height="auto" width="800" style="margin: 2em auto; display: block;">
+<p>Sketch of my cards</p>
+
+<img src="./readme-images/article.jpg" alt="Image of portfolio" height="auto" width="800" style="margin: 2em auto; display: block;">
+<p>Sketch of my article page</p>
+
+<img src="./readme-images/background.jpg" alt="Image of portfolio" height="auto" width="800" style="margin: 2em auto; display: block;">
+<p>Sketch of the background</p>
 
 ## Principles of User Interface Design:
 
@@ -85,6 +103,9 @@ I followed certain principles of UIDesign by Joshua Porter.\
 <img src="./readme-images/portfolio-v3.png" alt="Image of portfolio" height="auto" width="600" style="margin: 2em auto; display: block;">
 <p>Version 1.2.0 of my portfolio, probably the final version</p>
 
+<img src="./readme-images/article-image.png" alt="Image of portfolio" height="auto" width="600" style="margin: 2em auto; display: block;">
+<p>Version 1.2.0 of my portfolio article page, probably the final version</p>
+
 ## Animation
 For animation I used `TweenMax` and `TimelineMax` by GreenSock.\
 Animations play when the user first enters the website and leaves the website to a new page.\
@@ -121,6 +142,7 @@ After that she navigated to the now visible content that was made visible by ani
 - If loading takes a while give some feedback or make the loader focussable 
 
 ### Testing my portfolio with Larissa
+[Link to video](https://youtu.be/HjDgq6Cxv90) \
 I asked her if she could:
 1. Make an inventorisation of the website and explain to me how she thinks the structure works
 2. Navigate to a page and read it's contents
@@ -146,6 +168,9 @@ The user story I wrote is for a man at a Creative Digital company who sees appli
 
 ### John the CEO
 As a manager of my team, I want to see interesting and creative websites, research and solutions by people who want to work at my company. I want to see work of students who can make websites feel alive and well. The website should radiate a feeling that I as a viewer can emerge in and not feel bothered by it.
+
+### Larissa 
+As a (near)blind user, I want to be able to use the website functionalities as fast and correct as possible with a screenreader and keyboard navigation so that I can enjoy it's purpose and use the web without struggling
 
 ## To do and future
 1. Make a mobile version
