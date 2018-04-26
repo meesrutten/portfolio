@@ -2,7 +2,8 @@
 	max-width: 60rem;
 	width: 80%;
 	min-width: 20rem;
-	margin: 25vh auto 10vh auto;
+    padding: 15vh 0 5vh 0;
+    margin: 0 auto;
 	// header {
 	// 	article {
 	// 		position: absolute;
@@ -31,7 +32,7 @@
 		width: 100%;
 	}
 	.img-with-shadow {
-		filter: drop-shadow(0px 3px 15px rgba(15,115,239,0.5));
+		filter: drop-shadow(0px 2px 5px darken($colorBlue, 35%));
 	}
 	figure {
 		font-size: 1rem;
@@ -51,7 +52,8 @@
 		padding: .25rem .5rem;
 	}
 	.image-overlay-corners {
-		height: 100vh;
+		height: 70vh;
+		bottom: 0;
 		img {
 			// width: 50%;
 			transition: transform ease-out 200ms;
@@ -60,6 +62,7 @@
 			width: 70%;
 			display: block;
 			color: $colorWhite;
+			max-height: 26rem;
 			&:hover {
 				&::before, &::after {
 					display: none;
@@ -87,56 +90,74 @@
 		justify-content: space-around;
 	}
 	.view-project {
-		--webkit-appearance: none;
-		border: 0;
-		background: none;
-		font-size: 1rem;
-		font-weight: 600;
-		background-color: $colorBlue;
-		color: $colorWhite;
-		padding: 1rem 2rem;
-
-		position: relative;
-		overflow: hidden;
-		transition: transform 150ms ease-out;
-
-		display: block;
-		width: fit-content;
-		margin: 0 auto;
-
-		cursor: pointer;
-		// -webkit-filter: url("#goo");
-		// filter: url("#goo");
-		// -webkit-transform: translateZ(0);
-		// transform: translateZ(0);
-
-		&:before {
-			content: "";
-			background-color: rgba(255,255,255,0.5);
-			height: 100%;
-			width: 3em;
-			display: block;
-			position: absolute;
-			top: 0;
-			left: -5em;
-			transform: skewX(-45deg) translateX(0);
-		}
-		&:hover {
-			transform: scale(1.1);
-			&:before {
-				transform: skewX(-45deg) translateX(15em);
-				transition: all 0.5s ease-in-out;
+		display: flex;
+		align-items: center;
+		font-size: 1.5rem;
+		padding-bottom: .5rem;
+		svg {
+			margin-right: .4rem;
+			width: 2.4rem;
+			height: 2.4rem;
+			fill: $colorBlue;
+			path {
+				fill: $colorBlue;
 			}
 		}
+		&::after {
+			z-index: 3;
+		}
 	}
+	// 	--webkit-appearance: none;
+	// 	border: 0;
+	// 	background: none;
+	// 	font-size: 1rem;
+	// 	font-weight: 600;
+	// 	background-color: $colorBlue;
+	// 	color: $colorWhite;
+	// 	padding: 1rem 2rem;
+
+	// 	position: relative;
+	// 	overflow: hidden;
+	// 	transition: transform 150ms ease-out;
+
+	// 	display: block;
+	// 	width: fit-content;
+	// 	margin: 0 auto;
+
+	// 	cursor: pointer;
+	// 	// -webkit-filter: url("#goo");
+	// 	// filter: url("#goo");
+	// 	// -webkit-transform: translateZ(0);
+	// 	// transform: translateZ(0);
+
+	// 	&:before {
+	// 		content: "";
+	// 		background-color: rgba(255,255,255,0.5);
+	// 		height: 100%;
+	// 		width: 3em;
+	// 		display: block;
+	// 		position: absolute;
+	// 		top: 0;
+	// 		left: -5em;
+	// 		transform: skewX(-45deg) translateX(0);
+	// 	}
+	// 	&:hover {
+	// 		transform: scale(1.1);
+	// 		&:before {
+	// 			transform: skewX(-45deg) translateX(15em);
+	// 			transition: all 0.5s ease-in-out;
+	// 		}
+	// 	}
+	// }
 }
 .article-animation {
 	height: 50vh;
 	width: 100%;
 	position: absolute;
 	left: 0;
-	background-color: #333;
+	background-color: $colorWhite;
 	pointer-events: none;
+	will-change: transform;
 }
 .article-animation-top {
 	top: 0;

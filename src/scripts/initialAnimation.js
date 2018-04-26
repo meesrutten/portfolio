@@ -20,7 +20,12 @@ const initialAnimation = function() {
 		
 		TweenMax.to('#firstCard .card-cta', .6, {
 			rotationX: '0deg', autoAlpha: 1, onComplete: function(){
-				flipCardHorizontal()
+				flipCardHorizontal();
+				document.querySelectorAll('.card-holder')[0].insertAdjacentHTML('afterbegin', `
+				<div class="screen-reader-only" aria-live="rude">
+					Hey there! There is currently an animation playing of a card folding out while revealing its contents. This may take a second so please wait one second before you navigate.
+				</div>
+				`)
 			}
 		})
 
@@ -37,11 +42,13 @@ const initialAnimation = function() {
 		TweenMax.staggerTo(cardContent, .6, {
 			 autoAlpha: 1, onComplete: function(){
 				hoverPerspectiveAnimation();
-				TweenMax.to('.card-shadow', .3, {autoAlpha: 1})
+				TweenMax.to('.card-shadow', .3, {autoAlpha: 1});
+				 if (document.querySelectorAll('#firstCard')[0]){
+					 document.querySelectorAll('#firstCard')[0].setAttribute('aria-busy', 'false')
+				 }
 			}
 		}, 0.3)
 	}
-
 }
 
 export default initialAnimation;

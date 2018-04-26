@@ -121,19 +121,58 @@
 	<p class="text-for-button"><%- data[0].LinkIntro %></p>
 	<% } %>
 	<% if(data[0].Link1.length > 0 && data[0].Link2.length <= 0 && data[0].Link3.length <=0) { %>
-	<a href="<%- data[0].Link1Href %>" class="view-project">
-		<%- data[0].Link1 %>
-	</a>
+	<div class="links">
+		<a href="<%- data[0].Link1Href %>" class="view-project">
+			<% if(data[0].Link1 === 'GitHub') {%>
+				<%- include('components/github-logo.ejs') %>
+			<% } %>
+			<% if(data[0].Link1 === 'CodePen') {%>
+				<%- include('components/codepen-logo.ejs') %>
+			<% } %>
+			<% if(data[0].Link1 === 'Twitter') {%>
+				<%- include('components/twitter-logo.ejs') %>
+			<% } %>
+			<%- data[0].Link1 %>
+		</a>
+	</div>
 	<% } else { %>
 	<div class="links">
 	<a href="<%- data[0].Link1Href %>" target="_blank" class="view-project">
+		<% if(data[0].Link1 === 'GitHub') {%>
+			<%- include('components/github-logo.ejs') %>
+		<% } %>
+		<% if(data[0].Link1 === 'CodePen') {%>
+			<%- include('components/codepen-logo.ejs') %>
+		<% } %>
+		<% if(data[0].Link1 === 'Twitter') {%>
+			<%- include('components/twitter-logo.ejs') %>
+		<% } %>
 		<%- data[0].Link1 %>
 	</a>
 	<a href="<%- data[0].Link2Href %>" target="_blank" class="view-project">
+		<% if(data[0].Link2 === 'GitHub') {%>
+			<%- include('components/github-logo.ejs') %>
+		<% } %>
+		<% if(data[0].Link2 === 'CodePen') {%>
+			<%- include('components/codepen-logo.ejs') %>
+		<% } %>
+		<% if(data[0].Link2 === 'Twitter') {%>
+			<%- include('components/twitter-logo.ejs') %>
+		<% } %>
 		<%- data[0].Link2 %>
 	</a>
 	<% if(data[0].Link3.length > 0) {%>
 	<a href="<%- data[0].Link3Href %>" target="_blank" class="view-project">
+		<% if(data[0].Link3 === 'GitHub') {%>
+			<%- include('components/github-logo.ejs') %>
+		<% } %>
+		<% if(data[0].Link3 === 'CodePen') {%>
+			<%- include('components/codepen-logo.ejs') %>
+		<% } %>
+		<% if(data[0].Link3 === 'Twitter') {%>
+			<%- include('components/twitter-logo.ejs') %>
+		<% } %>
+
 		<%- data[0].Link3 %>
 	</a>
 	<% } %>

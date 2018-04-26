@@ -5,6 +5,7 @@ const app = express();
 const cardData = require('./public/cards.json')
 const articleData = require('./public/articles.json')
 const firstCard = require('./public/first-card.json')
+const PORT = process.env.port || 6969
 
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
@@ -36,6 +37,6 @@ app.get('/:id', function (req, res) {
 });
 
 
-const server = app.listen(6969, function () {
+const server = app.listen(PORT, function () {
 	console.log('server is running on port 6969');
 });

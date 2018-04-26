@@ -1,13 +1,13 @@
-const STATIC_CACHE = 'static-cache-v4';
+const STATIC_CACHE = 'static-cache-v1';
 
 self.addEventListener('install', event => {
 	event.waitUntil(
 		caches.open(STATIC_CACHE)
 			.then(cache => cache.addAll([
-				'/scripts/bundle.js',
-				'/scripts/libs/TweenLite.min.js',
+				'/scripts/index.js',
 				'/scripts/libs/TweenMax.min.js',
-				'/scripts/libs/utils/SplitText.min.js',
+				'/scripts/libs/barba.min.js',
+				'/scripts/libs/TimelineMax.min.js',
 				'/styles/main.css',
 			]))
 			.then(self.skipWaiting())

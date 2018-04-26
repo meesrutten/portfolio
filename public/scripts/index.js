@@ -174,7 +174,7 @@ document.addEventListener("DOMContentLoaded", function () {
 			paused: true
 		});
 
-		tlFoldCard.to('.card-shadow', .3, { autoAlpha: 0 }).to('.card-leftHalf', .6, { rotationY: '-170deg', autoAlpha: 0, transformStyle: 'preserve-3d', transformOrigin: 'right' }).to('.card-cta', .6, { rotationX: '-179deg', autoAlpha: 0, transformStyle: 'preserve-3d', transformOrigin: 'top' }).to('.card-info', .6, { x: '-50%' }).to(['.card-info p', '.card-info h1', '.card-info h2', '.card-info ul'], .3, { autoAlpha: 0 }).to('.background-sizer', .4, { scale: 1, width: windowWidth + 'px', height: windowHeight * 1.2 + 'px', x: '-' + windowWidth / 2 + 'px', y: '-' + windowHeight / 2 + 'px', transformOrigin: 'center' });
+		tlFoldCard.to('.card-shadow', .3, { autoAlpha: 0 }).to('.card-leftHalf', .6, { rotationY: '-170deg', autoAlpha: 0, transformStyle: 'preserve-3d', transformOrigin: 'right' }).to(['.card-info p', '.card-info h1', '.card-info h2', '.card-info h3', '.card-info ul'], .3, { autoAlpha: 0 }).to('.card-cta', .6, { rotationX: '-179deg', autoAlpha: 0, transformStyle: 'preserve-3d', transformOrigin: 'top' }).to('.card-info', .6, { x: '-50%' }).to('.background-sizer', .4, { scale: 1, width: windowWidth + 'px', height: windowHeight * 1.2 + 'px', x: '-' + windowWidth / 2 + 'px', y: '-' + windowHeight / 2 + 'px', transformOrigin: 'center' });
 
 		var Homepage = Barba.BaseView.extend({
 			namespace: 'homepage',
@@ -230,8 +230,8 @@ document.addEventListener("DOMContentLoaded", function () {
 				TweenMax.to('.article-animation-bottom', .5, { delay: .3, y: '100%', onComplete: function onComplete() {
 						TweenMax.set(['.article-animation-bottom', '.article-animation-top'], { autoAlpha: 0 });
 					} });
-				TweenMax.set(['h1', 'h2', 'p', 'img', 'figcaption', 'button'], { autoAlpha: 0, y: -5 });
-				TweenMax.staggerTo(['h1', 'h2', 'p', 'img', 'figcaption', 'button'], 1.2, { delay: .3, autoAlpha: 1, y: 0 }, 0.3);
+				TweenMax.set(['header h1', 'header p', 'header + img', 'header +figcaption'], { autoAlpha: 0, y: -5 });
+				TweenMax.staggerTo(['header h1', 'header p', 'header + img', 'header +figcaption'], 1.2, { delay: .3, autoAlpha: 1, y: 0 }, 0.3);
 			},
 			onLeave: function onLeave() {
 				// A new Transition toward a new page has just started.
@@ -646,6 +646,7 @@ var initialAnimation = function initialAnimation() {
 		TweenMax.to('#firstCard .card-cta', .6, {
 			rotationX: '0deg', autoAlpha: 1, onComplete: function onComplete() {
 				flipCardHorizontal();
+				document.querySelectorAll('.card-holder')[0].insertAdjacentHTML('afterbegin', '\n\t\t\t\t<div class="screen-reader-only" aria-live="rude">\n\t\t\t\t\tHey there! There is currently an animation playing of a card folding out while revealing its contents. This may take a second so please wait one second before you navigate.\n\t\t\t\t</div>\n\t\t\t\t');
 			}
 		});
 	}
@@ -662,6 +663,9 @@ var initialAnimation = function initialAnimation() {
 			autoAlpha: 1, onComplete: function onComplete() {
 				(0, _hoverPerspectiveAnimation2.default)();
 				TweenMax.to('.card-shadow', .3, { autoAlpha: 1 });
+				if (document.querySelectorAll('#firstCard')[0]) {
+					document.querySelectorAll('#firstCard')[0].setAttribute('aria-busy', 'false');
+				}
 			}
 		}, 0.3);
 	}
