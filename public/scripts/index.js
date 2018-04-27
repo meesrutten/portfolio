@@ -405,7 +405,7 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 function hoverPerspectiveAnimation() {
-	if (window.matchMedia("(min-width: 40rem)").matches) {
+	if (window.matchMedia("(min-width: 48rem)").matches) {
 		var addHoverPerspectiveAnimation = function addHoverPerspectiveAnimation(el) {
 			el.addEventListener('click', function (e) {
 				var rect = el.getBoundingClientRect(),

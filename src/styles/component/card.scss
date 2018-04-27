@@ -92,7 +92,7 @@ $flipVertical: 600ms;
 			}
 			h1, h2, h3 {
 				margin: 0;
-				padding-top: 8rem; 
+				padding-top: 8vh; 
 				padding-left: 2rem;
 				font-size: 2em;
 				color: $colorBlack;
@@ -357,7 +357,7 @@ $flipVertical: 600ms;
 	}
 }
 
-@media screen and(max-width: 40rem) {
+@media screen and(max-width: 48rem) {
 	.card-holder {
 
 	}

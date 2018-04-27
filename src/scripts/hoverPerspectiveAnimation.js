@@ -1,5 +1,5 @@
 function hoverPerspectiveAnimation() {
-	if (window.matchMedia("(min-width: 40rem)").matches) {
+	if (window.matchMedia("(min-width: 48rem)").matches) {
 	/* the viewport is at least 400 pixels wide */
 
 	const cards = document.querySelectorAll('.card');
