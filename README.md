@@ -175,5 +175,5 @@ My observations:
 
 ## To do and future
 1. Increase the performance on browsers like Firefox, Safari and Edge
-2. Add progressive image loading
-3. Reduce first load heavily
+2. Reduce image sizes
+3. Add content

@@ -13,15 +13,18 @@ var _backgroundAnimation2 = _interopRequireDefault(_backgroundAnimation);
 
 require('./cardAnimation');
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _swHandler = require('./sw-handler');
 
-// import servicehandler from './sw-handler';
+var _swHandler2 = _interopRequireDefault(_swHandler);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // backgroundAnimation();
 // initialAnimation()
 
-// import hoverPerspectiveAnimation from './hoverPerspectiveAnimation';
 var links = document.querySelectorAll('a');
+// import hoverPerspectiveAnimation from './hoverPerspectiveAnimation';
+
 links.forEach(function (link) {
 	if (link.textContent === '') {
 		link.style = "display: none;";
@@ -36,7 +39,7 @@ links.forEach(function (link) {
 
 // hoverPerspectiveAnimation();
 
-},{"./backgroundAnimation":2,"./cardAnimation":3,"./imageLoader":5,"./initialAnimation":7}],2:[function(require,module,exports){
+},{"./backgroundAnimation":2,"./cardAnimation":3,"./imageLoader":5,"./initialAnimation":7,"./sw-handler":8}],2:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -737,4 +740,39 @@ exports.default = initialAnimation;
 // 	// Disable entire IntersectionObserver
 // 	// io.disconnect();
 
-},{"./hoverPerspectiveAnimation":4}]},{},[6]);
+},{"./hoverPerspectiveAnimation":4}],8:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+// https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorker
+var servicehandler = function () {
+	if ('serviceWorker' in navigator) {
+		navigator.serviceWorker.register('/sw.js', {
+			scope: './'
+		}).then(function (registration) {
+			var serviceWorker;
+			if (registration.installing) {
+				serviceWorker = registration.installing;
+			} else if (registration.waiting) {
+				serviceWorker = registration.waiting;
+			} else if (registration.active) {
+				serviceWorker = registration.active;
+			}
+			if (serviceWorker) {
+				// logState(serviceWorker.state);
+				serviceWorker.addEventListener('statechange', function (e) {
+					// logState(e.target.state);
+				});
+			}
+		}).catch(function (error) {
+			// Something went wrong during registration. The service-worker.js file
+			// might be unavailable or contain a syntax error.
+		});
+	}
+}();
+
+exports.default = servicehandler;
+
+},{}]},{},[6]);

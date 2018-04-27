@@ -9,6 +9,13 @@
 %>
  <% for (let key in firstCard) { %>
 	<section class="card-holder">
+	<noscript>
+		<style>
+		#firstCard, .card {
+			opacity: 1 !important;
+		}	
+		</style>
+	</noscript>
 		<article id="firstCard" class="card" aria-live="polite" aria-busy="true">
 			<div role="presentation" class="card-shadow"></div>
 			<div class="flipper">

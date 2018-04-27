@@ -33,7 +33,8 @@
 		<meta name="msapplication-config" content="browserconfig.xml">
 		<meta name="theme-color" content="#000000">
 
-		<link rel="stylesheet" href="/styles/main.css">
+		<%- include('../components/critical-css.ejs') %>
+		<link rel="preload" href="/styles/main.css" as="style">
 	</head>
 
 	<body>
