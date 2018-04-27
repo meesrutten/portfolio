@@ -92,7 +92,13 @@ $flipVertical: 600ms;
 			}
 			h1, h2, h3 {
 				margin: 0;
-				padding-top: 8vh; 
+				padding-top: 40%;
+				@media screen and(max-width: 48rem){
+					padding-top: 3rem;
+				} 
+				@media screen and(max-height: 62rem){
+					padding-top: 3rem;
+				} 
 				padding-left: 2rem;
 				font-size: 2em;
 				color: $colorBlack;

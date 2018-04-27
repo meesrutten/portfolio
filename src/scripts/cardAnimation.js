@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
 			.to(['.card-info p', '.card-info h1', '.card-info h2', '.card-info h3', '.card-info ul'], .3, { autoAlpha: 0 })
 			.to('.card-cta', .6, { rotationX: '-179deg', autoAlpha: 0, transformStyle: 'preserve-3d', transformOrigin: 'top' })
 			.to('.card-info', .6, { x: '-50%' })
-			.to('.background-sizer', .4, { scale: 1, width: `${windowWidth}px`, height: `${windowHeight * 1.2}px`, x: `-${windowWidth / 2}px`, y: `-${windowHeight / 2}px`, transformOrigin: 'center' })
+			.to('.background-sizer', .4, { scale: 1, width: `${windowWidth}px`, height: `${windowHeight * 1.2}px`, transformOrigin: 'center' })
 
 		var Homepage = Barba.BaseView.extend({
 			namespace: 'homepage',
@@ -77,12 +77,12 @@ document.addEventListener("DOMContentLoaded", function () {
 				// setTimeout(backgroundAnimation, 50)
 				window.scrollTo(0, 0);
 				backgroundAnimation();
-				TweenMax.to('.article-animation-top', .5, { delay: .3, y: '-100%' });
-				TweenMax.to('.article-animation-bottom', .5, { delay: .3, y: '100%', onComplete: function(){
+				TweenMax.to('.article-animation-top', .7, { delay: .3, y: '-100%' });
+				TweenMax.to('.article-animation-bottom', .7, { delay: .3, y: '100%', onComplete: function(){
 					TweenMax.set(['.article-animation-bottom', '.article-animation-top'], {autoAlpha: 0})
 				} });
-				TweenMax.set(['header h1', 'header p', 'header + img', 'header +figcaption'], { autoAlpha: 0, y: -5 })
-				TweenMax.staggerTo(['header h1', 'header p', 'header + img', 'header +figcaption'], 1.2, { delay: .3, autoAlpha: 1, y: 0 }, 0.3)
+				TweenMax.set(['header h1', 'header p', 'img', 'figcaption'], { autoAlpha: 0, y: -5 })
+				TweenMax.staggerTo(['header h1', 'header p', 'img', 'figcaption'], 1.2, { delay: .4, autoAlpha: 1, y: 0 }, 0.5)
 			},
 			onLeave: function () {
 				// A new Transition toward a new page has just started.

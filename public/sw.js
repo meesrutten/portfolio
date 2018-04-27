@@ -4,6 +4,7 @@ self.addEventListener('install', event => {
 	event.waitUntil(
 		caches.open(STATIC_CACHE)
 			.then(cache => cache.addAll([
+				'/',
 				'/scripts/index.js',
 				'/scripts/libs/TweenMax.min.js',
 				'/scripts/libs/barba.min.js',

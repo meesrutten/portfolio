@@ -174,8 +174,6 @@ My observations:
 - She didn't feel like hearing the 'story-told' animation
 
 ## To do and future
-1. Make a mobile version
-2. Increase the performance on browsers like Firefox, Safari and Edge
-3. Add a serviceworker
-4. Add progressive image loading
-5. Reduce first load heavily
+1. Increase the performance on browsers like Firefox, Safari and Edge
+2. Add progressive image loading
+3. Reduce first load heavily

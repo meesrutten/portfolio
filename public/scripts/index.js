@@ -1,6 +1,8 @@
 (function(){function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s}return e})()({1:[function(require,module,exports){
 'use strict';
 
+require('./imageLoader');
+
 var _initialAnimation = require('./initialAnimation');
 
 var _initialAnimation2 = _interopRequireDefault(_initialAnimation);
@@ -34,7 +36,7 @@ links.forEach(function (link) {
 
 // hoverPerspectiveAnimation();
 
-},{"./backgroundAnimation":2,"./cardAnimation":3,"./initialAnimation":6}],2:[function(require,module,exports){
+},{"./backgroundAnimation":2,"./cardAnimation":3,"./imageLoader":5,"./initialAnimation":7}],2:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -174,7 +176,7 @@ document.addEventListener("DOMContentLoaded", function () {
 			paused: true
 		});
 
-		tlFoldCard.to('.card-shadow', .3, { autoAlpha: 0 }).to('.card-leftHalf', .6, { rotationY: '-170deg', autoAlpha: 0, transformStyle: 'preserve-3d', transformOrigin: 'right' }).to(['.card-info p', '.card-info h1', '.card-info h2', '.card-info h3', '.card-info ul'], .3, { autoAlpha: 0 }).to('.card-cta', .6, { rotationX: '-179deg', autoAlpha: 0, transformStyle: 'preserve-3d', transformOrigin: 'top' }).to('.card-info', .6, { x: '-50%' }).to('.background-sizer', .4, { scale: 1, width: windowWidth + 'px', height: windowHeight * 1.2 + 'px', x: '-' + windowWidth / 2 + 'px', y: '-' + windowHeight / 2 + 'px', transformOrigin: 'center' });
+		tlFoldCard.to('.card-shadow', .3, { autoAlpha: 0 }).to('.card-leftHalf', .6, { rotationY: '-170deg', autoAlpha: 0, transformStyle: 'preserve-3d', transformOrigin: 'right' }).to(['.card-info p', '.card-info h1', '.card-info h2', '.card-info h3', '.card-info ul'], .3, { autoAlpha: 0 }).to('.card-cta', .6, { rotationX: '-179deg', autoAlpha: 0, transformStyle: 'preserve-3d', transformOrigin: 'top' }).to('.card-info', .6, { x: '-50%' }).to('.background-sizer', .4, { scale: 1, width: windowWidth + 'px', height: windowHeight * 1.2 + 'px', transformOrigin: 'center' });
 
 		var Homepage = Barba.BaseView.extend({
 			namespace: 'homepage',
@@ -226,12 +228,12 @@ document.addEventListener("DOMContentLoaded", function () {
 				// setTimeout(backgroundAnimation, 50)
 				window.scrollTo(0, 0);
 				(0, _backgroundAnimation2.default)();
-				TweenMax.to('.article-animation-top', .5, { delay: .3, y: '-100%' });
-				TweenMax.to('.article-animation-bottom', .5, { delay: .3, y: '100%', onComplete: function onComplete() {
+				TweenMax.to('.article-animation-top', .7, { delay: .3, y: '-100%' });
+				TweenMax.to('.article-animation-bottom', .7, { delay: .3, y: '100%', onComplete: function onComplete() {
 						TweenMax.set(['.article-animation-bottom', '.article-animation-top'], { autoAlpha: 0 });
 					} });
-				TweenMax.set(['header h1', 'header p', 'header + img', 'header +figcaption'], { autoAlpha: 0, y: -5 });
-				TweenMax.staggerTo(['header h1', 'header p', 'header + img', 'header +figcaption'], 1.2, { delay: .3, autoAlpha: 1, y: 0 }, 0.3);
+				TweenMax.set(['header h1', 'header p', 'img', 'figcaption'], { autoAlpha: 0, y: -5 });
+				TweenMax.staggerTo(['header h1', 'header p', 'img', 'figcaption'], 1.2, { delay: .4, autoAlpha: 1, y: 0 }, 0.5);
 			},
 			onLeave: function onLeave() {
 				// A new Transition toward a new page has just started.
@@ -398,7 +400,7 @@ document.addEventListener("DOMContentLoaded", function () {
 // 	}, 0.3)
 // }
 
-},{"./backgroundAnimation":2,"./initialAnimation":6}],4:[function(require,module,exports){
+},{"./backgroundAnimation":2,"./initialAnimation":7}],4:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -613,13 +615,46 @@ exports.default = hoverPerspectiveAnimation;
 },{}],5:[function(require,module,exports){
 'use strict';
 
+var images = document.querySelectorAll('[data-src]');
+var config = {
+	rootMargin: '0px 0px 0px 0px',
+	threshold: 0
+};
+var loaded = 0;
+
+var imageObserver = new IntersectionObserver(function (entries, self) {
+	entries.forEach(function (entry) {
+		if (entry.isIntersecting) {
+			// console.log(`Image ${entry.target.src} is in the viewport!`);
+			preloadImage(entry.target);
+			// Stop watching and load the image
+			self.unobserve(entry.target);
+		}
+	});
+}, config);
+
+images.forEach(function (image) {
+	imageObserver.observe(image);
+});
+
+function preloadImage(img) {
+	var src = img.getAttribute('data-src');
+	if (!src) {
+		return;
+	}
+	img.src = src;
+}
+
+},{}],6:[function(require,module,exports){
+'use strict';
+
 var _app = require('./app');
 
 var _app2 = _interopRequireDefault(_app);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-},{"./app":1}],6:[function(require,module,exports){
+},{"./app":1}],7:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -702,4 +737,4 @@ exports.default = initialAnimation;
 // 	// Disable entire IntersectionObserver
 // 	// io.disconnect();
 
-},{"./hoverPerspectiveAnimation":4}]},{},[5]);
+},{"./hoverPerspectiveAnimation":4}]},{},[6]);
