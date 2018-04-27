@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
 			.to(['.card-info p', '.card-info h1', '.card-info h2', '.card-info h3', '.card-info ul'], .3, { autoAlpha: 0 })
 			.to('.card-cta', .6, { rotationX: '-179deg', autoAlpha: 0, transformStyle: 'preserve-3d', transformOrigin: 'top' })
 			.to('.card-info', .6, { x: '-50%' })
-			.to('.background-sizer', .4, { scale: 1, width: `${windowWidth}px`, height: `${windowHeight * 1.2}px`, transformOrigin: 'center' })
+			.to('.background-sizer', .4, { scale: 1, width: `${windowWidth}px`, height: `${windowHeight * 1.2}px`, x: `-${windowWidth / 2}px`, y: `-${windowHeight / 2}px`, transformOrigin: 'center' })
 
 		var Homepage = Barba.BaseView.extend({
 			namespace: 'homepage',
