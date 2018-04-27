@@ -1,5 +1,6 @@
 import initialAnimation from './initialAnimation';
 import backgroundAnimation from './backgroundAnimation';
+import loadImagesOnIntersect from './imageLoader';
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -30,6 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
 			namespace: 'homepage',
 			onEnter: function () {
 				initialAnimation();
+				loadImagesOnIntersect();
 				if (typeof (Storage) !== 'undefined') {
 					// Apply set scroll position from the scrollToProject function
 					var lastYPos = +localStorage.getItem('scrollYPos');

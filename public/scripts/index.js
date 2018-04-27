@@ -1,8 +1,6 @@
 (function(){function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s}return e})()({1:[function(require,module,exports){
 'use strict';
 
-require('./imageLoader');
-
 var _initialAnimation = require('./initialAnimation');
 
 var _initialAnimation2 = _interopRequireDefault(_initialAnimation);
@@ -39,7 +37,7 @@ links.forEach(function (link) {
 
 // hoverPerspectiveAnimation();
 
-},{"./backgroundAnimation":2,"./cardAnimation":3,"./imageLoader":5,"./initialAnimation":7,"./sw-handler":8}],2:[function(require,module,exports){
+},{"./backgroundAnimation":2,"./cardAnimation":3,"./initialAnimation":7,"./sw-handler":8}],2:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -160,6 +158,10 @@ var _backgroundAnimation = require('./backgroundAnimation');
 
 var _backgroundAnimation2 = _interopRequireDefault(_backgroundAnimation);
 
+var _imageLoader = require('./imageLoader');
+
+var _imageLoader2 = _interopRequireDefault(_imageLoader);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -185,6 +187,7 @@ document.addEventListener("DOMContentLoaded", function () {
 			namespace: 'homepage',
 			onEnter: function onEnter() {
 				(0, _initialAnimation2.default)();
+				(0, _imageLoader2.default)();
 				if (typeof Storage !== 'undefined') {
 					// Apply set scroll position from the scrollToProject function
 					var lastYPos = +localStorage.getItem('scrollYPos');
@@ -403,7 +406,7 @@ document.addEventListener("DOMContentLoaded", function () {
 // 	}, 0.3)
 // }
 
-},{"./backgroundAnimation":2,"./initialAnimation":7}],4:[function(require,module,exports){
+},{"./backgroundAnimation":2,"./imageLoader":5,"./initialAnimation":7}],4:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -618,35 +621,41 @@ exports.default = hoverPerspectiveAnimation;
 },{}],5:[function(require,module,exports){
 'use strict';
 
-var images = document.querySelectorAll('[data-src]');
-var config = {
-	rootMargin: '0px 0px 0px 0px',
-	threshold: 0
-};
-var loaded = 0;
-
-var imageObserver = new IntersectionObserver(function (entries, self) {
-	entries.forEach(function (entry) {
-		if (entry.isIntersecting) {
-			// console.log(`Image ${entry.target.src} is in the viewport!`);
-			preloadImage(entry.target);
-			// Stop watching and load the image
-			self.unobserve(entry.target);
-		}
-	});
-}, config);
-
-images.forEach(function (image) {
-	imageObserver.observe(image);
+Object.defineProperty(exports, "__esModule", {
+	value: true
 });
+var loadImagesOnIntersect = function loadImagesOnIntersect() {
+	var images = document.querySelectorAll('[data-src]');
+	var config = {
+		rootMargin: '0px 0px 0px 0px',
+		threshold: 0
+	};
+	var loaded = 0;
 
-function preloadImage(img) {
-	var src = img.getAttribute('data-src');
-	if (!src) {
-		return;
+	var imageObserver = new IntersectionObserver(function (entries, self) {
+		entries.forEach(function (entry) {
+			if (entry.isIntersecting) {
+				// console.log(`Image ${entry.target.src} is in the viewport!`);
+				preloadImage(entry.target);
+				// Stop watching and load the image
+				self.unobserve(entry.target);
+			}
+		});
+	}, config);
+
+	images.forEach(function (image) {
+		imageObserver.observe(image);
+	});
+
+	function preloadImage(img) {
+		var src = img.getAttribute('data-src');
+		if (!src) {
+			return;
+		}
+		img.src = src;
 	}
-	img.src = src;
-}
+};
+exports.default = loadImagesOnIntersect;
 
 },{}],6:[function(require,module,exports){
 'use strict';

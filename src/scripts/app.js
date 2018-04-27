@@ -1,4 +1,3 @@
-import './imageLoader';
 import initialAnimation from './initialAnimation';
 // import hoverPerspectiveAnimation from './hoverPerspectiveAnimation';
 import backgroundAnimation from './backgroundAnimation';
