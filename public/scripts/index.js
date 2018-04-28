@@ -181,7 +181,7 @@ document.addEventListener("DOMContentLoaded", function () {
 			paused: true
 		});
 
-		tlFoldCard.to('.card-shadow', .3, { autoAlpha: 0 }).to('.card-leftHalf', .6, { rotationY: '-170deg', autoAlpha: 0, transformStyle: 'preserve-3d', transformOrigin: 'right' }).to(['.card-info p', '.card-info h1', '.card-info h2', '.card-info h3', '.card-info ul'], .3, { autoAlpha: 0 }).to('.card-cta', .6, { rotationX: '-179deg', autoAlpha: 0, transformStyle: 'preserve-3d', transformOrigin: 'top' }).to('.card-info', .6, { x: '-50%' }).to('.background-sizer', .4, { scale: 1, width: windowWidth + 'px', height: windowHeight * 1.2 + 'px', x: '-' + windowWidth / 2 + 'px', y: '-' + windowHeight / 2 + 'px', transformOrigin: 'center' });
+		tlFoldCard.to('.card-shadow', .3, { autoAlpha: 0 }).to('.card-leftHalf', .6, { rotationY: '-170deg', autoAlpha: 0, transformStyle: 'preserve-3d', transformOrigin: 'right' }).to(['.card-info p', '.card-info h1', '.card-info h2', '.card-info h3', '.card-info ul'], .3, { autoAlpha: 0 }).to('.card-cta', .6, { delay: .1, rotationX: '-179deg', autoAlpha: 0, transformStyle: 'preserve-3d', transformOrigin: 'top' }).to('.card-info', .6, { x: '-50%' }).to('.background-sizer', .4, { scale: 1, width: windowWidth + 'px', height: windowHeight * 1.2 + 'px', x: '-' + windowWidth / 2 + 'px', y: '-' + windowHeight / 2 + 'px', transformOrigin: 'center' });
 
 		var Homepage = Barba.BaseView.extend({
 			namespace: 'homepage',
@@ -234,8 +234,8 @@ document.addEventListener("DOMContentLoaded", function () {
 				// setTimeout(backgroundAnimation, 50)
 				window.scrollTo(0, 0);
 				(0, _backgroundAnimation2.default)();
-				TweenMax.to('.article-animation-top', .7, { delay: .3, y: '-100%' });
-				TweenMax.to('.article-animation-bottom', .7, { delay: .3, y: '100%', onComplete: function onComplete() {
+				TweenMax.to('.article-animation-top', .8, { delay: .3, y: '-100%' });
+				TweenMax.to('.article-animation-bottom', .8, { delay: .3, y: '100%', onComplete: function onComplete() {
 						TweenMax.set(['.article-animation-bottom', '.article-animation-top'], { autoAlpha: 0 });
 					} });
 				TweenMax.set(['header h1', 'header p', 'img', 'figcaption'], { autoAlpha: 0, y: -5 });
@@ -680,7 +680,7 @@ var _hoverPerspectiveAnimation2 = _interopRequireDefault(_hoverPerspectiveAnimat
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var initialAnimation = function initialAnimation() {
-	TweenMax.globalTimeScale(1.25);
+	// TweenMax.globalTimeScale(1.2)
 	var cardContent = ['#firstCard h1', '#firstCard h2', '#firstCard p', '#firstCard h3', '#firstCard a', '#firstCard button', '#firstCard svg', '.card-shadow'];
 	TweenMax.set(cardContent, { autoAlpha: 0, x: -10 });
 	TweenMax.set('#firstCard .card-cta', { rotationX: '-170deg', autoAlpha: 0, transformOrigin: 'top' });
@@ -689,8 +689,8 @@ var initialAnimation = function initialAnimation() {
 	TweenMax.set('.card', { autoAlpha: 0, y: -10 });
 	TweenMax.to('.card', 1.2, { delay: .3, autoAlpha: 1, y: 0 }, 0.3);
 
-	TweenMax.to('#firstCard', .6, { delay: .3, x: '-25%', y: '0vh', autoAlpha: 1, onComplete: function onComplete() {
-			TweenMax.to('#firstCard', .5, { x: '0%', y: '0vh', scaleX: 1, autoAlpha: 1, onComplete: function onComplete() {
+	TweenMax.to('#firstCard', .3, { delay: .3, x: '-25%', y: '0vh', autoAlpha: 1, onComplete: function onComplete() {
+			TweenMax.to('#firstCard', .4, { x: '0%', y: '0vh', scaleX: 1, autoAlpha: 1, onComplete: function onComplete() {
 					flipCardVertical();
 				} });
 		}
@@ -698,7 +698,7 @@ var initialAnimation = function initialAnimation() {
 
 	function flipCardVertical() {
 
-		TweenMax.to('#firstCard .card-cta', .6, {
+		TweenMax.to('#firstCard .card-cta', .4, {
 			rotationX: '0deg', autoAlpha: 1, onComplete: function onComplete() {
 				flipCardHorizontal();
 				document.querySelectorAll('.card-holder')[0].insertAdjacentHTML('afterbegin', '\n\t\t\t\t<div class="screen-reader-only" aria-live="rude">\n\t\t\t\t\tHey there! There is currently an animation playing of a card folding out while revealing its contents. This may take a second so please wait one second before you navigate.\n\t\t\t\t</div>\n\t\t\t\t');
@@ -706,7 +706,7 @@ var initialAnimation = function initialAnimation() {
 		});
 	}
 	function flipCardHorizontal() {
-		TweenMax.to('#firstCard .card-leftHalf', .6, {
+		TweenMax.to('#firstCard .card-leftHalf', .5, {
 			rotationY: '0deg', autoAlpha: 1, onComplete: function onComplete() {
 				// hoverPerspectiveAnimation()
 				flipCardShowContent();

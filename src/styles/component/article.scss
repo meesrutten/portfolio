@@ -120,7 +120,12 @@
 		display: flex;
 		max-width: 33rem;
 		margin: 1rem auto;
-		justify-content: space-around;
+		justify-content: center;
+		flex-flow: column wrap;
+		align-items: center;
+		a {
+			margin-top: .5rem;
+		}
 	}
 	.view-project {
 		display: flex;

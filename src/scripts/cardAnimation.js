@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
 			.to('.card-shadow', .3, { autoAlpha: 0 })
 			.to('.card-leftHalf', .6, { rotationY: '-170deg', autoAlpha: 0, transformStyle: 'preserve-3d', transformOrigin: 'right' })
 			.to(['.card-info p', '.card-info h1', '.card-info h2', '.card-info h3', '.card-info ul'], .3, { autoAlpha: 0 })
-			.to('.card-cta', .6, { rotationX: '-179deg', autoAlpha: 0, transformStyle: 'preserve-3d', transformOrigin: 'top' })
+			.to('.card-cta', .6, { delay: .1, rotationX: '-179deg', autoAlpha: 0, transformStyle: 'preserve-3d', transformOrigin: 'top' })
 			.to('.card-info', .6, { x: '-50%' })
 			.to('.background-sizer', .4, { scale: 1, width: `${windowWidth}px`, height: `${windowHeight * 1.2}px`, x: `-${windowWidth / 2}px`, y: `-${windowHeight / 2}px`, transformOrigin: 'center' })
 
@@ -79,8 +79,8 @@ document.addEventListener("DOMContentLoaded", function () {
 				// setTimeout(backgroundAnimation, 50)
 				window.scrollTo(0, 0);
 				backgroundAnimation();
-				TweenMax.to('.article-animation-top', .7, { delay: .3, y: '-100%' });
-				TweenMax.to('.article-animation-bottom', .7, { delay: .3, y: '100%', onComplete: function(){
+				TweenMax.to('.article-animation-top', .8, { delay: .3, y: '-100%' });
+				TweenMax.to('.article-animation-bottom', .8, { delay: .3, y: '100%', onComplete: function(){
 					TweenMax.set(['.article-animation-bottom', '.article-animation-top'], {autoAlpha: 0})
 				} });
 				TweenMax.set(['header h1', 'header p', 'img', 'figcaption'], { autoAlpha: 0, y: -5 })

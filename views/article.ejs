@@ -20,6 +20,28 @@
 			<%- data[0].imageAlt %>
 		</figcaption>
 	</figure>
+	<% if(data[0].listTitle1.length > 0) { %>
+		<h2>
+			<%- data[0].listTitle1 %>
+		</h2>
+		<ul>
+		<% if(data[0].listItem1.length > 0) { %>
+			<li>
+				<%- data[0].listItem1 %>
+			</li>
+		<% } %>
+		<% if(data[0].listItem2.length > 0) { %>
+			<li>
+				<%- data[0].listItem2 %>
+			</li>
+		<% } %>
+		<% if(data[0].listItem3.length > 0) { %>
+			<li>
+				<%- data[0].listItem3 %>
+			</li>
+		<% } %>
+		</ul>
+	<% } %>
 
 	<% if(data[0].title1.length > 0) { %>
 		<h2><%- data[0].title1 %></h2>
@@ -71,28 +93,6 @@
 		</figcaption>
 	</figure>
 	<% } %>
-	<% if(data[0].listTitle1.length > 0) { %>
-		<h2>
-			<%- data[0].listTitle1 %>
-		</h2>
-	<% } %>
-	<ul>
-	<% if(data[0].listItem1.length > 0) { %>
-		<li>
-			<%- data[0].listItem1 %>
-		</li>
-	<% } %>
-	<% if(data[0].listItem2.length > 0) { %>
-		<li>
-			<%- data[0].listItem2 %>
-		</li>
-	<% } %>
-	<% if(data[0].listItem3.length > 0) { %>
-		<li>
-			<%- data[0].listItem3 %>
-		</li>
-	<% } %>
-	</ul>
 	<% if(data[0].imageSrc3.length > 0) { %>
 	<figure role="presentation">
 		<img src="<%- data[0].imageSrc3 %>" alt="data[0].imageAlt3" class="img-with-shadow" role="presentation">
@@ -117,18 +117,6 @@
 		</a>
 	</figure>
 	<% } %>
-	<footer>
-		<h2>Contact me!</h2>
-		<p>I'm open for creative projects and experiments.</p>
-		<a href="mailto:meesrutten@gmail.com">
-			<%- include('components/email-logo.ejs') %>
-			meesrutten@gmail.com
-		</a>
-		<a href="https://twitter.com/meesrttn">
-			<%- include('components/twitter-logo.ejs') %>
-			@meesrttn
-		</a>
-	</footer>
 	<% if(data[0].LinkIntro.length > 0) { %>
 	<p class="text-for-button"><%- data[0].LinkIntro %></p>
 	<% } %>
@@ -149,6 +137,7 @@
 	</div>
 	<% } else { %>
 	<div class="links">
+	<h2>Check it out here!</h2>
 	<a href="<%- data[0].Link1Href %>" target="_blank" class="view-project">
 		<% if(data[0].Link1 === 'GitHub') {%>
 			<%- include('components/github-logo.ejs') %>
@@ -190,6 +179,19 @@
 	<% } %>
 	</div>
 	<%}%>
+	<footer>
+		<h2>Contact me!</h2>
+		<p>I'm open for creative projects and experiments.</p>
+		<a href="mailto:meesrutten@gmail.com">
+			<%- include('components/email-logo.ejs') %>
+			meesrutten@gmail.com
+		</a>
+		<a href="https://twitter.com/meesrttn">
+			<%- include('components/twitter-logo.ejs') %>
+			@meesrttn
+		</a>
+	</footer>
+
 </article>
 
 

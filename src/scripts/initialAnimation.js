@@ -1,7 +1,7 @@
 import hoverPerspectiveAnimation from './hoverPerspectiveAnimation'
 
 const initialAnimation = function() {
-	TweenMax.globalTimeScale(1.25)
+	// TweenMax.globalTimeScale(1.2)
 	const cardContent = ['#firstCard h1', '#firstCard h2', '#firstCard p', '#firstCard h3', '#firstCard a', '#firstCard button', '#firstCard svg', '.card-shadow']
 	TweenMax.set(cardContent, { autoAlpha: 0, x: -10 })
 	TweenMax.set('#firstCard .card-cta', { rotationX: '-170deg', autoAlpha: 0, transformOrigin: 'top' })
@@ -10,8 +10,8 @@ const initialAnimation = function() {
 	TweenMax.set('.card', { autoAlpha: 0, y: -10 })
 	TweenMax.to('.card', 1.2, { delay: .3, autoAlpha: 1, y: 0 }, 0.3)
 
-	TweenMax.to('#firstCard', .6, { delay: .3, x: '-25%', y: '0vh', autoAlpha: 1, onComplete: function(){
-			TweenMax.to('#firstCard', .5, { x: '0%', y: '0vh', scaleX: 1, autoAlpha: 1,  onComplete: function(){
+	TweenMax.to('#firstCard', .3, { delay: .3, x: '-25%', y: '0vh', autoAlpha: 1, onComplete: function(){
+			TweenMax.to('#firstCard', .4, { x: '0%', y: '0vh', scaleX: 1, autoAlpha: 1,  onComplete: function(){
 				flipCardVertical();
 			} })
 		} 
@@ -19,7 +19,7 @@ const initialAnimation = function() {
 
 	function flipCardVertical() {
 		
-		TweenMax.to('#firstCard .card-cta', .6, {
+		TweenMax.to('#firstCard .card-cta', .4, {
 			rotationX: '0deg', autoAlpha: 1, onComplete: function(){
 				flipCardHorizontal();
 				document.querySelectorAll('.card-holder')[0].insertAdjacentHTML('afterbegin', `
@@ -32,7 +32,7 @@ const initialAnimation = function() {
 
 	}
 	function flipCardHorizontal() {
-		TweenMax.to('#firstCard .card-leftHalf', .6, {
+		TweenMax.to('#firstCard .card-leftHalf', .5, {
 			rotationY: '0deg', autoAlpha: 1, onComplete: function(){
 				// hoverPerspectiveAnimation()
 				flipCardShowContent();

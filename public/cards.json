@@ -1,10 +1,10 @@
 {
-	"Magic-lib": [
+	"Magic-library": [
 		{
-			"title": "Magic Lib",
+			"title": "Magic Library",
 			"imageSrc": "./images/magic-lib.png",
 			"MoreOver": "Project",
-			"MoreOverText": "A microlib to make the Web Animations API easier to use via JSON components.",
+			"MoreOverText": "A micro library I made to make the Web Animations API easier to use via JSON components.",
 			"MoreOverListHeader": "Techniques:",
 			"MoreOverListItem1": "Web animation API",
 			"MoreOverListItem2": "",
@@ -33,20 +33,20 @@
 			"Button": "See more"
 		}
 	],
-	"Tired": [
+	"Globe": [
 		{
-			"title": "Tired",
-			"imageSrc": "./images/moe-open.png",
+			"title": "Twitter Globe",
+			"imageSrc": "./images/globe.png",
 			"MoreOver": "Project",
-			"MoreOverText": "Creative coding that depicts the user falling asleep while reading.",
+			"MoreOverText": "An animated WebGL globe which displays the location of people tweeting about the given searchword.",
 			"MoreOverListHeader": "Techniques:",
-			"MoreOverListItem1": "CSS Animation",
-			"MoreOverListItem2": "CSS Filters",
-			"MoreOverListItem3": "",
-			"Link2Href": "https://github.com/meesrutten/",
+			"MoreOverListItem1": "WebGL",
+			"MoreOverListItem2": "JavaScript",
+			"MoreOverListItem3": "Twitter API",
+			"Link2Href": "https://github.com/meesrutten/real-time-web-project",
 			"Link2": "GitHub",
-			"Link1Href": "https://codepen.io/meesrutten/full/MGezRK",
-			"Link1": "CodePen",
+			"Link1Href": "",
+			"Link1": "",
 			"Button": "See more"
 		}
 	],
@@ -63,6 +63,23 @@
 			"Link2Href": "https://github.com/meesrutten/chatbot",
 			"Link2": "GitHub",
 			"Link1Href": "https://codepen.io/meesrutten/full/wgvpQM",
+			"Link1": "CodePen",
+			"Button": "See more"
+		}
+	],
+	"Tired": [
+		{
+			"title": "Tired",
+			"imageSrc": "./images/moe-open.png",
+			"MoreOver": "Project",
+			"MoreOverText": "Creative coding that depicts the user falling asleep while reading.",
+			"MoreOverListHeader": "Techniques:",
+			"MoreOverListItem1": "CSS Animation",
+			"MoreOverListItem2": "CSS Filters",
+			"MoreOverListItem3": "",
+			"Link2Href": "https://github.com/meesrutten/",
+			"Link2": "GitHub",
+			"Link1Href": "https://codepen.io/meesrutten/full/MGezRK",
 			"Link1": "CodePen",
 			"Button": "See more"
 		}

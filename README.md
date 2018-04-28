@@ -174,6 +174,5 @@ My observations:
 - She didn't feel like hearing the 'story-told' animation
 
 ## To do and future
-1. Increase the performance on browsers like Firefox, Safari and Edge
-2. Reduce image sizes
-3. Add content
+1. Reduce image sizes
+2. Add content
