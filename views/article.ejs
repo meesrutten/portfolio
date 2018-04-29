@@ -1,5 +1,7 @@
 <% var data = data; %>
 
+
+
 <%- include('common/head.ejs') %>
 
 <div id="barba-wrapper">
@@ -103,7 +105,7 @@
 	<% } %>
 	<% if(data[0].imageSrc4.length > 0) { %>
 	<figure role="presentation" class="image-overlay-corners">
-		<a href="https://meesrutten.me/Magic-lib">
+		<a href="https://meesrutten.me/Magic-library">
 			<img src="<%- data[0].imageSrc4 %>" alt="data[0].imageAlt4" role="presentation">
 			<figcaption role="presentation">
 				<%- data[0].imageAlt4 %>
@@ -122,7 +124,7 @@
 	<% } %>
 	<% if(data[0].Link1.length > 0 && data[0].Link2.length <= 0 && data[0].Link3.length <=0) { %>
 	<div class="links">
-		<a href="<%- data[0].Link1Href %>" class="view-project">
+		<a href="<%- data[0].Link1Href %>" class="view-project" target="_blank">
 			<% if(data[0].Link1 === 'GitHub') {%>
 				<%- include('components/github-logo.ejs') %>
 			<% } %>
@@ -186,7 +188,7 @@
 			<%- include('components/email-logo.ejs') %>
 			meesrutten@gmail.com
 		</a>
-		<a href="https://twitter.com/meesrttn">
+		<a href="https://twitter.com/meesrttn" target="_blank">
 			<%- include('components/twitter-logo.ejs') %>
 			@meesrttn
 		</a>

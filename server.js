@@ -31,9 +31,18 @@ function getPageContent(id) {
 	}
 }
 
-app.get('/:id', function (req, res) {
-	const pageContent = getPageContent(req.params.id)
-	res.render('article', { data: pageContent });
+app.get('/:id', function (req, res, next) {
+	const pageContent = getPageContent(req.params.id);
+	if(typeof pageContent === 'undefined'){
+		next();
+	}
+	else {
+		res.render('article', { data: pageContent });
+	}
+});
+
+app.get('*', function (req, res) {
+	res.render('404');
 });
 
 
