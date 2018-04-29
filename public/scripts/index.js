@@ -180,8 +180,23 @@ document.addEventListener("DOMContentLoaded", function () {
 		var tlFoldCard = new TimelineMax({
 			paused: true
 		});
-
-		tlFoldCard.to('.card-shadow', .3, { autoAlpha: 0 }).to('.card-leftHalf', .6, { rotationY: '-170deg', autoAlpha: 0, transformStyle: 'preserve-3d', transformOrigin: 'right' }).to(['.card-info p', '.card-info h1', '.card-info h2', '.card-info h3', '.card-info ul'], .3, { autoAlpha: 0 }).to('.card-cta', .6, { delay: .1, rotationX: '-179deg', autoAlpha: 0, transformStyle: 'preserve-3d', transformOrigin: 'top' }).to('.card-info', .6, { x: '-50%' }).to('.background-sizer', .4, { scale: 1, width: windowWidth + 'px', height: windowHeight * 1.2 + 'px', x: '-' + windowWidth / 2 + 'px', y: '-' + windowHeight / 2 + 'px', transformOrigin: 'center' });
+		if (window.matchMedia("(min-width: 48rem)").matches) {
+			//bigger than 48rem
+			tlFoldCard.to('.card-shadow', .3, { autoAlpha: 0 }).to('.card-leftHalf', .6, { rotationY: '-170deg', autoAlpha: 0, transformStyle: 'preserve-3d', transformOrigin: 'right' }).to(['.card-info p', '.card-info h1', '.card-info h2', '.card-info h3', '.card-info ul'], .3, { autoAlpha: 0 }).to('.card-cta', .6, { delay: .1, rotationX: '-179deg', autoAlpha: 0, transformStyle: 'preserve-3d', transformOrigin: 'top' }).to('.card-info', .6, { x: '-50%' }).to('.background-sizer', .4, { scale: 1, width: windowWidth + 'px', height: windowHeight * 1.2 + 'px', x: '-' + windowWidth / 2 + 'px', y: '-' + windowHeight / 2 + 'px', transformOrigin: 'center' });
+		} else {
+			//Smaller than ... 
+			if (document.querySelectorAll('.background-sizer')[0]) {
+				var cardInfo = document.querySelectorAll('.background-sizer');
+				console.log(cardInfo);
+				cardInfo.forEach(function (elem) {
+					var cardInfoTop = elem.parentElement.getBoundingClientRect().top;
+					var cardInfoHeight = elem.parentElement.getBoundingClientRect().height;
+					elem.parentElement.querySelector('.background-sizer').style = 'top: ' + cardInfoHeight / 2 + ';';
+				});
+			}
+			TweenMax.set('.background-sizer', { scaleY: 0, width: windowWidth + 'px' });
+			tlFoldCard.to('.card-shadow', .3, { autoAlpha: 0 }).to('.card-leftHalf', .6, { rotationY: '-170deg', autoAlpha: 0, transformStyle: 'preserve-3d', transformOrigin: 'right' }).to(['.card-info p', '.card-info h1', '.card-info h2', '.card-info h3', '.card-info ul'], .3, { autoAlpha: 0 }).to('.card-cta', .6, { delay: .1, rotationX: '-179deg', autoAlpha: 0, transformStyle: 'preserve-3d', transformOrigin: 'top' }).to('.card-info', .3, { scaleY: 0, transformOrigin: 'center' }).to(['.background-sizer', '.card-info'], .5, { scaleY: 5, transformOrigin: 'center' });
+		}
 
 		var Homepage = Barba.BaseView.extend({
 			namespace: 'homepage',
