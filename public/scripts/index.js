@@ -172,11 +172,6 @@ document.addEventListener("DOMContentLoaded", function () {
 		var windowWidth = document.querySelector('.background').getBoundingClientRect().width;
 		var windowHeight = document.querySelector('.background').getBoundingClientRect().height;
 
-		function findAncestor(el, cls) {
-			while ((el = el.parentElement) && !el.classList.contains(cls)) {}
-			return el;
-		}
-
 		var tlFoldCard = new TimelineMax({
 			paused: true
 		});
@@ -223,30 +218,16 @@ document.addEventListener("DOMContentLoaded", function () {
 					var lastYPos = +localStorage.getItem('scrollYPos');
 					localStorage.setItem('scrollYPos', window.scrollY);
 				}
-				tlFoldCard.play();
-				// tlFoldCard.eventCallback('onComplete', setState);
-				// function setState(){
-				// 	Barba.BaseTransition.done()
-				// }
 			},
-			onLeaveCompleted: function onLeaveCompleted() {
-				// The Container has just been removed from the DOM.
-			}
+			onLeaveCompleted: function onLeaveCompleted() {}
 		});
 		var Article = Barba.BaseView.extend({
 			namespace: 'article',
 			onEnter: function onEnter() {
 				console.log('on enter article');
-				// TweenMax.to('.background-sizer', .3, { autoAlpha: 0 })
-				tlFoldCard.play();
-				// tlFoldCard.eventCallback('onComplete', setState);
-				// function setState() {
-				// 	Barba.BaseTransition.done()
-				// }
 			},
 			onEnterCompleted: function onEnterCompleted() {
 				// The Transition has just finished.
-				// setTimeout(backgroundAnimation, 50)
 				window.scrollTo(0, 0);
 				(0, _backgroundAnimation2.default)();
 				TweenMax.to('.article-animation-top', .8, { delay: .3, y: '-100%' });
@@ -259,15 +240,11 @@ document.addEventListener("DOMContentLoaded", function () {
 			onLeave: function onLeave() {
 				// A new Transition toward a new page has just started.
 				console.log('leaving article');
-				console.log('increasing timescale');
-				// tlFoldCard.reverse();				
 			},
 			onLeaveCompleted: function onLeaveCompleted() {
 				console.log('onleave complete');
 			}
 		});
-
-		// Don't forget to init the view!
 		Homepage.init();
 		Article.init();
 
@@ -291,6 +268,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 				function transitionCard(event) {
 					tlFoldCard.play();
+
+					// tlFoldCard.play();
 					tlFoldCard.eventCallback('onComplete', setState);
 					function setState() {
 						deferred.resolve();
@@ -303,56 +282,17 @@ document.addEventListener("DOMContentLoaded", function () {
 				this.oldContainer.style.visibility = 'hidden';
 				this.newContainer.style.visibility = 'visible';
 				this.done();
-				// reloadJS();
 			}
 		});
 
 		var BackTransition = Barba.BaseTransition.extend({
-			// start: function () {
-			// 	this.newContainerLoading.then(this.unflipCard.bind(this));
-			// },
 			start: function start() {
 				this.newContainerLoading.then(this.unflipCard.bind(this));
-				// Promise
-				// 	.all([this.newContainerLoading, this.unflipCard.bind(this)])
-				// 	.then(this.unflipCard.bind(this));
 			},
 
 			unflipCard: function unflipCard() {
-				// this.oldContainer.remove();
 				this.newContainer.style.visibility = 'visible';
 				this.done();
-				// tlFoldCard.reverse();
-				// tlFoldCard.eventCallback('onComplete', setState);
-				// function setState() {
-				// 	console.log('back navigation is done');
-				// 	// reloadJS();
-				// 	// console.log(document.querySelector(`#${Barba.HistoryManager.prevStatus().url.split('/').pop()}`));
-				// 	// document.querySelector(`#${Barba.HistoryManager.prevStatus().url.split('/').pop()}`).scrollIntoView({ behavior: "smooth", block: "center", inline: "center" });
-				// 	this.done();
-				// }
-				// backgroundAnimation();
-				// initialAnimation();
-
-				// var _this = this;
-
-				// this.oldContainer.style.zIndex = '10';
-				// this.newContainer.style.visibility = 'visible';
-
-				// var href = Barba.HistoryManager.prevStatus().url.split('/').pop();
-				// var destThumb = this.newContainer.querySelector('a[href="' + href + '"]');
-				// var destThumbPosition = destThumb.getBoundingClientRect();
-				// var fullImage = this.oldContainer.querySelector('.full');
-
-				// TweenLite.to(this.oldContainer.querySelector('.back'), 0.2, { opacity: 0 });
-
-				// TweenLite.to(fullImage, 0.3, {
-				// 	top: destThumbPosition.top,
-				// 	height: destThumb.clientHeight,
-				// 	onComplete: function () {
-				// 		_this.done();
-				// 	}
-				// });
 			}
 		});
 
@@ -366,60 +306,8 @@ document.addEventListener("DOMContentLoaded", function () {
 			return transitionObj;
 		};
 	}
-	// Barba.Dispatcher.on('newPageReady', function (currentStatus, oldStatus, container) {
-	// 	console.log('newpageready', currentStatus, oldStatus);
-	// 	setPageTransitions();
-	// });
 	setPageTransitions();
-
-	function reloadJS() {
-		(0, _initialAnimation2.default)();
-		(0, _backgroundAnimation2.default)();
-		setPageTransitions();
-	}
 });
-
-// const cardContent = ['#firstCard h1', '#firstCard h2', '#firstCard p', '#firstCard a', '#firstCard button', '.card-shadow']
-// TweenMax.set(cardContent, { autoAlpha: 0 })
-// TweenMax.set('#firstCard .card-cta', { rotationX: '-170deg', autoAlpha: 0, transformOrigin: 'top' })
-// TweenMax.set('#firstCard .card-leftHalf', { rotationY: '-170deg', autoAlpha: 0, transformOrigin: 'right' })
-// TweenMax.set('#firstCard', { x: '-25%', y: '-50vh', autoAlpha: 0, transformOrigin: 'center' })
-
-// TweenMax.to('#firstCard', .6, {
-// 	delay: .3, x: '-25%', y: '0vh', autoAlpha: 1, onComplete: function () {
-// 		TweenMax.to('#firstCard', .5, {
-// 			x: '0%', y: '0vh', scaleX: 1, autoAlpha: 1, onComplete: function () {
-// 				flipCardVertical();
-// 			}
-// 		})
-// 	}
-// })
-
-// function flipCardVertical() {
-
-// 	TweenMax.to('#firstCard .card-cta', .6, {
-// 		rotationX: '0deg', autoAlpha: 1, onComplete: function () {
-// 			flipCardHorizontal()
-// 		}
-// 	})
-
-// }
-// function flipCardHorizontal() {
-// 	TweenMax.to('#firstCard .card-leftHalf', .6, {
-// 		rotationY: '0deg', autoAlpha: 1, onComplete: function () {
-// 			// hoverPerspectiveAnimation()
-// 			flipCardShowContent();
-// 		}
-// 	})
-// }
-// function flipCardShowContent() {
-// 	TweenMax.staggerTo(cardContent, .6, {
-// 		autoAlpha: 1, onComplete: function () {
-// 			hoverPerspectiveAnimation();
-// 			TweenMax.to('.card-shadow', .3, { autoAlpha: 1 })
-// 		}
-// 	}, 0.3)
-// }
 
 },{"./backgroundAnimation":2,"./imageLoader":5,"./initialAnimation":7}],4:[function(require,module,exports){
 "use strict";
