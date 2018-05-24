@@ -60,20 +60,22 @@ When interacting with the primary action, the card will flip or fold and reveal 
 
 ## Principles of User Interface Design:
 
-I followed certain principles of UIDesign by Joshua Porter.\
+I followed certain principles of UIDesign by Joshua Porter. \
 
-2. Interfaces exist to enable interaction
-6. One primary action per screen
+2: Interfaces exist to enable interaction
+	- The interface (on desktop) is interactive in a way where the user has direct manipulation over the depth of the cards.
+6: One primary action per screen
 	- My primary actions are per _card_ instead of screen.
-7. Keep secondary action secondary
-	- I kept links to external websites a blue on white color while relative links get a button type feeling
-8. Provide a natural next step
-	- Every screen has buttons to other pages
-11. Strong visual hierarchies work best
+<img src="./readme-images/PUID-6.jpg" alt="Image of portfolio" height="auto" width="400" style="margin: .5em auto; display: block;">
+7: Keep secondary action secondary
+	- I kept links to external websites an accessible icon/logo while relative links get a link type feeling (blue on white)
+8: Provide a natural next step
+	- 'See more' on the cards indicates for a natural next step.
+11: Strong visual hierarchies work best
 	- Titles with a paragraph or a list per title for hierarchy.
 	- I use animation to visualize the hierarchy
-12. Smart organization reduces cognitive load
-	- The cards with obvious color differences should keep things organised.
+12: Smart organization reduces cognitive load
+	- There are _always_ one card per screen, one main CTA per card. One main title, a subtitle, some text and icon/logo links.
 
 ## Feedback by Mo Mulazada:
 - Fix typography, placement
