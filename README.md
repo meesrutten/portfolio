@@ -173,6 +173,6 @@ My observations:
 	> After I toggled the `aria-busy` attribute
 - She didn't feel like hearing the 'story-told' animation
 
-## To do and future
-1. Reduce image sizes
-2. Add content
+## Feedback by Koop Reynders
+1. Final CTA misses for John the CEO to contact you
+	> I've added links to my email adress and twitter bio on the first card and article pages
