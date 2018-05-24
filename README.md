@@ -62,6 +62,8 @@ When interacting with the primary action, the card will flip or fold and reveal 
 
 I followed certain principles of UIDesign by Joshua Porter. \
 
+My usecase was: **I want users of screen readers to experience animation but in the form of storytelling.**
+
 2: Interfaces exist to enable interaction
 	- The interface (on desktop) is interactive in a way where the user has direct manipulation over the depth of the cards.
 6: One primary action per screen
