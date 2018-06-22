@@ -1,4 +1,4 @@
-const STATIC_CACHE = 'static-cache-v6';
+const STATIC_CACHE = 'static-cache-v7';
 
 self.addEventListener('install', event => {
 	event.waitUntil(
@@ -9,6 +9,13 @@ self.addEventListener('install', event => {
 				'/scripts/libs/TweenMax.min.js',
 				'/scripts/libs/barba.min.js',
 				'/scripts/libs/TimelineMax.min.js',
+				'/images/mees.jpg',
+				'/images/magic-lib.png',
+				'/images/navvy.png',
+				'/images/timeline-of-artists.png',
+				'/images/globe.png',
+				'/images/moe-open.png',
+				'/images/GitHub-Mark-64px.png',
 				'/styles/main.css',
 			]))
 			.then(self.skipWaiting())

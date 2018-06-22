@@ -9,7 +9,6 @@ const loadImagesOnIntersect = function() {
 	let imageObserver = new IntersectionObserver(function (entries, self) {
 		entries.forEach(entry => {
 			if (entry.isIntersecting) {
-				// console.log(`Image ${entry.target.src} is in the viewport!`);
 				preloadImage(entry.target);
 				// Stop watching and load the image
 				self.unobserve(entry.target);
