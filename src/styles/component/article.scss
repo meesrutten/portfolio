@@ -34,7 +34,7 @@
     object-fit: contain;
   }
   .img-with-shadow {
-    filter: drop-shadow(0px 2px 5px darken($colorBlue, 35%));
+    filter: drop-shadow(0px 2px 5px #111);
   }
   figure {
     font-size: 1rem;
