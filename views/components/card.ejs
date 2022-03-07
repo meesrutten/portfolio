@@ -38,7 +38,7 @@
 							<ul>
 								<%if(firstCard[key][0].MoreOverListItem1.length > 0){ %>
 									<li>
-										<a href="mailto:meesrutten@gmail.com">
+										<a href="mailto:mees@level30wizards.com">
 											<%- firstCard[key][0].MoreOverListItem1 %>
 										</a>
 									</li>
@@ -54,6 +54,13 @@
 									<li>
 										<a href="<%- firstCard[key][0].MoreOverListItem3 %>">
 											<%- firstCard[key][0].MoreOverListItem3 %>
+										</a>
+									</li>
+								<% } %>
+								<%if(firstCard[key][0].MoreOverListItem4.length > 0){ %>
+									<li>
+										<a href="<%- firstCard[key][0].MoreOverListItem4 %>">
+											<%- firstCard[key][0].MoreOverListItem4 %>
 										</a>
 									</li>
 								<% } %>
@@ -127,7 +134,7 @@
 						</article>
 						<section class="card-cta">
 							<nav role="navigation">
-								<a class="card-button-link" href="<%- key %>" aria-label="Read more about <%- content[key][0].title %>" rel="next">
+								<a class="card-button-link" href="<%- content[key][0].ButtonHref %>" aria-label="Read more about <%- content[key][0].title %>" rel="next">
 									<%- content[key][0].Button %>
 										<span class="screen-reader-only"> about
 											<%- content[key][0].title %>

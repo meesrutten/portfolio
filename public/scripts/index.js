@@ -182,7 +182,6 @@ document.addEventListener("DOMContentLoaded", function () {
 			//Smaller than ... 
 			if (document.querySelectorAll('.background-sizer')[0]) {
 				var cardInfo = document.querySelectorAll('.background-sizer');
-				console.log(cardInfo);
 				cardInfo.forEach(function (elem) {
 					var cardInfoTop = elem.parentElement.getBoundingClientRect().top;
 					var cardInfoHeight = elem.parentElement.getBoundingClientRect().height;
@@ -211,7 +210,6 @@ document.addEventListener("DOMContentLoaded", function () {
 				(0, _backgroundAnimation2.default)();
 			},
 			onLeave: function onLeave() {
-				console.log('leaving homepage');
 				// A new Transition toward a new page has just started.
 				if (typeof Storage !== 'undefined') {
 					// Set scroll position
@@ -223,9 +221,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		});
 		var Article = Barba.BaseView.extend({
 			namespace: 'article',
-			onEnter: function onEnter() {
-				console.log('on enter article');
-			},
+			onEnter: function onEnter() {},
 			onEnterCompleted: function onEnterCompleted() {
 				// The Transition has just finished.
 				window.scrollTo(0, 0);
@@ -239,11 +235,8 @@ document.addEventListener("DOMContentLoaded", function () {
 			},
 			onLeave: function onLeave() {
 				// A new Transition toward a new page has just started.
-				console.log('leaving article');
 			},
-			onLeaveCompleted: function onLeaveCompleted() {
-				console.log('onleave complete');
-			}
+			onLeaveCompleted: function onLeaveCompleted() {}
 		});
 		Homepage.init();
 		Article.init();
@@ -300,7 +293,6 @@ document.addEventListener("DOMContentLoaded", function () {
 			var transitionObj = ExpandTransition;
 			if (Barba.HistoryManager.prevStatus().namespace === 'article') {
 				transitionObj = BackTransition;
-				console.log('prev is article');
 			}
 
 			return transitionObj;

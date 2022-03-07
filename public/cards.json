@@ -1,87 +1,56 @@
 {
-	"Magic-library": [
+	"Level30Wizards": [
 		{
-			"title": "Magic Library",
-			"imageSrc": "./images/magic-lib.png",
+			"title": "Level30Wizards",
+			"imageSrc": "./images/mees/head-square.png",
 			"MoreOver": "Project",
-			"MoreOverText": "A micro library I made to make the Web Animations API easier to use via JSON components.",
-			"MoreOverListHeader": "Techniques:",
-			"MoreOverListItem1": "Web animation API",
-			"MoreOverListItem2": "",
-			"MoreOverListItem3": "",
-			"Link2Href": "https://github.com/meesrutten/magiclib",
-			"Link2": "GitHub",
+			"MoreOverText": "The Creative Digital Studio I run together with my Co-Founders.",
+			"MoreOverListHeader": "We build:",
+			"MoreOverListItem1": "3D Worlds on the web",
+			"MoreOverListItem2": "Animated websites",
+			"MoreOverListItem3": "Digital campaigns",
+			"Link2Href": "",
+			"Link2": "",
 			"Link1Href": "",
 			"Link1": "",
-			"Button": "See more"
+			"Button": "Go to Level30Wizards",
+			"ButtonHref": "https://level30wizards.com"
 		}
 	],
-	"Timeline-of-artists": [
+	"Recept Delen": [
 		{
-			"title": "Timeline of Artists",
-			"imageSrc": "./images/timeline-of-artists.png",
+			"title": "Receptdelen.nl",
+			"imageSrc": "./images/mees/receptdelen.png",
 			"MoreOver": "Project",
-			"MoreOverText": "A timeline of artists during the Golden Age of Amsterdam",
+			"MoreOverText": "A website where you can share recipes with friends, family and colleagues",
 			"MoreOverListHeader": "Techniques:",
-			"MoreOverListItem1": "GSAP",
-			"MoreOverListItem2": "Serverside rendering",
+			"MoreOverListItem1": "NextJS",
+			"MoreOverListItem2": "Firebase",
 			"MoreOverListItem3": "",
-			"Link2Href": "https://github.com/meesrutten/performance-matters-server-side",
-			"Link2": "GitHub",
-			"Link1Href": "https://codepen.io/meesrutten/full/WzNNGQ",
-			"Link1": "CodePen",
-			"Button": "See more"
-		}
-	],
-	"Globe": [
-		{
-			"title": "Twitter Globe",
-			"imageSrc": "./images/globe.png",
-			"MoreOver": "Project",
-			"MoreOverText": "An animated WebGL globe which displays the location of people tweeting about the given searchword.",
-			"MoreOverListHeader": "Techniques:",
-			"MoreOverListItem1": "WebGL",
-			"MoreOverListItem2": "JavaScript",
-			"MoreOverListItem3": "Twitter API",
-			"Link2Href": "https://github.com/meesrutten/real-time-web-project",
-			"Link2": "GitHub",
+			"Link2Href": "",
+			"Link2": "",
 			"Link1Href": "",
 			"Link1": "",
-			"Button": "See more"
+			"Button": "Go to Receptdelen",
+			"ButtonHref": "https://receptdelen.nl"
 		}
 	],
-	"Navvy": [
+	"Web Animation Blog": [
 		{
-			"title": "Navvy",
-			"imageSrc": "./images/navvy.png",
+			"title": "webanimation.blog",
+			"imageSrc": "./images/mees/webanimation.png",
 			"MoreOver": "Project",
-			"MoreOverText": "A chatbot that gives you information about certain things and helps you navigate.",
+			"MoreOverText": "This is where I blog about web animations together with the wizards at Level30Wizards",
 			"MoreOverListHeader": "Techniques:",
-			"MoreOverListItem1": "JavaScript",
-			"MoreOverListItem2": "",
+			"MoreOverListItem1": "Gatsby",
+			"MoreOverListItem2": "MDX",
 			"MoreOverListItem3": "",
-			"Link2Href": "https://github.com/meesrutten/chatbot",
-			"Link2": "GitHub",
-			"Link1Href": "https://codepen.io/meesrutten/full/wgvpQM",
-			"Link1": "CodePen",
-			"Button": "See more"
-		}
-	],
-	"Tired": [
-		{
-			"title": "Tired",
-			"imageSrc": "./images/moe-open.png",
-			"MoreOver": "Project",
-			"MoreOverText": "Creative coding that depicts the user falling asleep while reading.",
-			"MoreOverListHeader": "Techniques:",
-			"MoreOverListItem1": "CSS Animation",
-			"MoreOverListItem2": "CSS Filters",
-			"MoreOverListItem3": "",
-			"Link2Href": "https://github.com/meesrutten/",
-			"Link2": "GitHub",
-			"Link1Href": "https://codepen.io/meesrutten/full/MGezRK",
-			"Link1": "CodePen",
-			"Button": "See more"
+			"Link2Href": "",
+			"Link2": "",
+			"Link1Href": "https://github.com/meesrutten/webanimationblog",
+			"Link1": "Github",
+			"Button": "Go to webanimation.blog",
+			"ButtonHref": "https://webanimation.blog"
 		}
 	]
 }

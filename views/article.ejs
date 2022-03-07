@@ -16,9 +16,9 @@
 			<%- data[0].intro %>
 		</p>
 	</header>
-	<figure role="presentation">
-		<img role="presentation" src="<%- data[0].imageSrc %>" alt="<%- data[0].imageAlt %>" class="img-with-shadow">
-		<figcaption role="presentation">
+	<figure>
+		<img src="<%- data[0].imageSrc %>" alt="<%- data[0].imageAlt %>" class="img-with-shadow">
+		<figcaption>
 			<%- data[0].imageAlt %>
 		</figcaption>
 	</figure>
@@ -88,37 +88,22 @@
 		</p>
 	<% } %>
 	<% if(data[0].imageSrc2.length > 0) { %>
-	<figure role="presentation">
-		<img src="<%- data[0].imageSrc2 %>" alt="data[0].imageAlt2" class="img-with-shadow" role="presentation">
-		<figcaption role="presentation">
+	<figure>
+		<img src="<%- data[0].imageSrc2 %>" alt="data[0].imageAlt2" class="img-with-shadow">
+		<figcaption>
 		<%- data[0].imageAlt2 %>
 		</figcaption>
 	</figure>
 	<% } %>
 	<% if(data[0].imageSrc3.length > 0) { %>
-	<figure role="presentation">
-		<img src="<%- data[0].imageSrc3 %>" alt="data[0].imageAlt3" class="img-with-shadow" role="presentation">
-		<figcaption role="presentation">
+	<figure>
+		<img src="<%- data[0].imageSrc3 %>" alt="data[0].imageAlt3" class="img-with-shadow">
+		<figcaption>
 			<%- data[0].imageAlt3 %>
 		</figcaption>
 	</figure>
 	<% } %>
-	<% if(data[0].imageSrc4.length > 0) { %>
-	<figure role="presentation" class="image-overlay-corners">
-		<a href="https://meesrutten.me/Magic-library">
-			<img src="<%- data[0].imageSrc4 %>" alt="data[0].imageAlt4" role="presentation">
-			<figcaption role="presentation">
-				<%- data[0].imageAlt4 %>
-			</figcaption>
-		</a>
-		<a href="https://meesrutten.me/Timeline-of-artists">
-			<img src="<%- data[0].imageSrc5 %>" alt="data[0].imageAlt5" role="presentation">
-			<figcaption role="presentation">
-				<%- data[0].imageAlt5 %>
-			</figcaption>
-		</a>
-	</figure>
-	<% } %>
+	
 	<% if(data[0].LinkIntro.length > 0) { %>
 	<p class="text-for-button"><%- data[0].LinkIntro %></p>
 	<% } %>
@@ -184,9 +169,9 @@
 	<footer>
 		<h2>Contact me!</h2>
 		<p>I'm open for creative projects and experiments.</p>
-		<a href="mailto:meesrutten@gmail.com">
+		<a href="mailto:mees@level30wizards.com">
 			<%- include('components/email-logo.ejs') %>
-			meesrutten@gmail.com
+			mees@level30wizards.com
 		</a>
 		<a href="https://twitter.com/meesrttn" target="_blank">
 			<%- include('components/twitter-logo.ejs') %>
